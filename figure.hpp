@@ -26,10 +26,11 @@ public:
 	static bool (*cellEmpty)(int x, int y);
 protected:
 
+	static int cellSize;
+	
 	Texture tex;
 	Cell* cell;
 	Color _color;
-	static int cellSize;
 	bool _dead;
 };
 

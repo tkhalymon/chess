@@ -66,6 +66,36 @@ Board::~Board()
 void Board::render()
 {
 	glBegin(GL_QUADS);
+	glColor3d(0, 0, 0);
+	glVertex2d(boardPos.x() + cellSize * (-0.5), boardPos.y() + cellSize * (-0.5));
+	glVertex2d(boardPos.x() + cellSize * (8.5), boardPos.y() + cellSize * (-0.5));
+	glColor3d(0.7, 0.7, 0.7);
+	glVertex2d(boardPos.x() + cellSize * (8.025), boardPos.y() + cellSize * (-0.025));
+	glVertex2d(boardPos.x() + cellSize * (-0.025), boardPos.y() + cellSize * (-0.025));
+	
+	glColor3d(0, 0, 0);
+	glVertex2d(boardPos.x() + cellSize * (8.5), boardPos.y() + cellSize * (-0.5));
+	glVertex2d(boardPos.x() + cellSize * (8.5), boardPos.y() + cellSize * (8.5));
+	glColor3d(0.7, 0.7, 0.7);
+	glVertex2d(boardPos.x() + cellSize * (8.025), boardPos.y() + cellSize * (8.025));
+	glVertex2d(boardPos.x() + cellSize * (8.025), boardPos.y() + cellSize * (-0.025));
+
+	glColor3d(0, 0, 0);
+	glVertex2d(boardPos.x() + cellSize * (-0.5), boardPos.y() + cellSize * (8.5));
+	glVertex2d(boardPos.x() + cellSize * (8.5), boardPos.y() + cellSize * (8.5));
+	glColor3d(0.7, 0.7, 0.7);
+	glVertex2d(boardPos.x() + cellSize * (8.025), boardPos.y() + cellSize * (8.025));
+	glVertex2d(boardPos.x() + cellSize * (-0.025), boardPos.y() + cellSize * (8.025));
+
+	glColor3d(0, 0, 0);
+	glVertex2d(boardPos.x() + cellSize * (-0.5), boardPos.y() + cellSize * (8.5));
+	glVertex2d(boardPos.x() + cellSize * (-0.5), boardPos.y() + cellSize * (-0.5));
+	glColor3d(0.7, 0.7, 0.7);
+	glVertex2d(boardPos.x() + cellSize * (-0.025), boardPos.y() + cellSize * (-0.025));
+	glVertex2d(boardPos.x() + cellSize * (-0.025), boardPos.y() + cellSize * (8.025));
+	glEnd();
+	glEnable(GL_BLEND);
+	glBegin(GL_QUADS);
 	for (int i = 0; i < 8; ++i)
 	{
 		for (int j = 0; j < 8; ++j)
@@ -76,32 +106,37 @@ void Board::render()
 			glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.025));
 			glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.975));
 			glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.975));
-			if (selected == &cell[i][j])
+			if (selected == &cell[i][j] || pointed == &cell[i][j])
 			{
-				glColor3d(0, 1, 0);
+				if (selected == &cell[i][j])
+					glColor3d(0, 1, 0);
+				else
+					glColor4d(0, 1, 0, 0.5);
+
 				glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.025));
 				glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.025));
-				glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.075));
-				glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.075));
+				glVertex2d(boardPos.x() + cellSize * (i + 0.900), boardPos.y() + cellSize * (j + 0.100));
+				glVertex2d(boardPos.x() + cellSize * (i + 0.100), boardPos.y() + cellSize * (j + 0.100));
 				
-				glVertex2d(boardPos.x() + cellSize * (i + 0.925), boardPos.y() + cellSize * (j + 0.025));
+				glVertex2d(boardPos.x() + cellSize * (i + 0.900), boardPos.y() + cellSize * (j + 0.100));
 				glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.025));
 				glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.975));
-				glVertex2d(boardPos.x() + cellSize * (i + 0.925), boardPos.y() + cellSize * (j + 0.975));
+				glVertex2d(boardPos.x() + cellSize * (i + 0.900), boardPos.y() + cellSize * (j + 0.900));
 
-				glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.925));
-				glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.925));
+				glVertex2d(boardPos.x() + cellSize * (i + 0.100), boardPos.y() + cellSize * (j + 0.900));
+				glVertex2d(boardPos.x() + cellSize * (i + 0.900), boardPos.y() + cellSize * (j + 0.900));
 				glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.975));
 				glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.975));
 
 				glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.025));
-				glVertex2d(boardPos.x() + cellSize * (i + 0.075), boardPos.y() + cellSize * (j + 0.025));
-				glVertex2d(boardPos.x() + cellSize * (i + 0.075), boardPos.y() + cellSize * (j + 0.975));
+				glVertex2d(boardPos.x() + cellSize * (i + 0.100), boardPos.y() + cellSize * (j + 0.100));
+				glVertex2d(boardPos.x() + cellSize * (i + 0.100), boardPos.y() + cellSize * (j + 0.900));
 				glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.975));
 			}
 		}
 	}
 	glEnd();
+	glDisable(GL_BLEND);
 	for (std::vector<Figure*>::iterator i = whiteFigure.begin(); i < whiteFigure.end(); ++i)
 	{
 		if (!(*i)->dead()) (*i)->render();
@@ -119,7 +154,6 @@ void Board::advance()
 
 void Board::click(int button, int state, int x, int y)
 {
-	if (state == GLUT_UP && button == GLUT_LEFT_BUTTON)
 	for (int i = 0; i < 8; ++i)
 	{
 		for (int j = 0; j < 8; ++j)
@@ -127,33 +161,87 @@ void Board::click(int button, int state, int x, int y)
 			if (x > cell[i][j].pos().x() + cellSize * 0.025 && y > cell[i][j].pos().y() + cellSize * 0.025
 				&& x < cell[i][j].pos().x() + cellSize * 0.975 && y < cell[i][j].pos().y() + cellSize * 0.975)
 			{
-				if (selected == NULL)
-				{
-					if (!cell[i][j].empty() && cell[i][j].figure()->color() == currentPlayer)
-					{
-						selected = &cell[i][j];
-					}
-				}
-				else
-				{
-					if (!cell[i][j].empty() && cell[i][j].figure()->color() == selected->figure()->color())
-					{
-						selected = &cell[i][j];
-					}
-					else
-					{
-						if (move(selected, &cell[i][j]))
-						{
-							if (currentPlayer == Black)
-								currentPlayer = White;
-							else currentPlayer = Black;
-						}
-						selected = NULL;
-					}
-				}
+				point(&cell[i][j]);
 			}
 		}
 	}
+}
+
+void Board::point(Cell* cell)
+{
+	if (selected == NULL)
+	{
+		if (!cell->empty() && cell->figure()->color() == currentPlayer)
+		{
+			selected = cell;
+		}
+	}
+	else
+	{
+		if (!cell->empty() && cell->figure()->color() == selected->figure()->color())
+		{
+			selected = cell;
+		}
+		else
+		{
+			if (move(selected, cell))
+			{
+				if (currentPlayer == Black)
+					currentPlayer = White;
+				else currentPlayer = Black;
+			}
+			selected = NULL;
+		}
+	}
+}
+
+void Board::mouseMove(int x, int y)
+{
+	bool found = false;
+	for (int i = 0; i < 8; ++i)
+	{
+		for (int j = 0; j < 8; ++j)
+		{
+			if (x > cell[i][j].pos().x() + cellSize * 0.025 && y > cell[i][j].pos().y() + cellSize * 0.025
+				&& x < cell[i][j].pos().x() + cellSize * 0.975 && y < cell[i][j].pos().y() + cellSize * 0.975)
+			{
+				pointed = &cell[i][j];
+				lastPointed = pointed;
+				pointedX = i;
+				pointedY = j;
+				found = true;
+			}
+		}
+	}
+	if (!found)
+	{
+		lastPointed = pointed;
+		pointed = NULL;
+	}
+}
+
+void Board::keypressed (unsigned char key)
+{
+	switch (key)
+	{
+	case 'w':
+		if (pointedY > 0) pointedY--;
+		break;
+	case 's':
+		if (pointedX < 7) pointedY++;
+		break;
+	case 'a':
+		if (pointedX > 0) pointedX--;
+		break;
+	case 'd':
+		if (pointedX < 7) pointedX++;
+		break;
+	case ' ':
+		point (pointed);
+		break;
+	}
+	pointed = &cell[pointedX][pointedY];
+	// pointed = lastPointed;
 }
 
 bool Board::move(Cell* from, Cell* to)
