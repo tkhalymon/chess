@@ -1,9 +1,9 @@
 #include "rook.hpp"
 
-Rook::Rook(Cell* pos, Color color) : Figure(pos, color)
+Rook::Rook(Cell* pos, Color color) : Piece(pos, color)
 {
 	firstMove = true;
-	type = FRook;
+	type = PRook;
 	if (color == White)
 	{
 		tex.load("res/wrook.png");

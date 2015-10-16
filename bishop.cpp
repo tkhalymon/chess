@@ -1,8 +1,8 @@
 #include "bishop.hpp"
 
-Bishop::Bishop(Cell* pos, Color color) : Figure(pos, color)
+Bishop::Bishop(Cell* pos, Color color) : Piece(pos, color)
 {
-	type = FBishop;
+	type = PBishop;
 	if (color == White)
 	{
 		tex.load("res/wbishop.png");

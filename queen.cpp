@@ -1,8 +1,8 @@
 #include "queen.hpp"
 
-Queen::Queen(Cell* pos, Color color) : Figure(pos, color)
+Queen::Queen(Cell* pos, Color color) : Piece(pos, color)
 {
-	type = FQueen;
+	type = PQueen;
 	if (color == White)
 	{
 		tex.load("res/wqueen.png");

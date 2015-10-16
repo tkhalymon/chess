@@ -1,9 +1,9 @@
 #ifndef __KING_HPP__
 #define __KING_HPP__
 
-#include "figure.hpp"
+#include "piece.hpp"
 
-class King : public Figure
+class King : public Piece
 {
 public:
 	King(Cell* pos, Color color);

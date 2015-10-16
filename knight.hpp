@@ -1,9 +1,9 @@
 #ifndef __KNIGHT_HPP__
 #define __KNIGHT_HPP__
 
-#include "figure.hpp"
+#include "piece.hpp"
 
-class Knight : public Figure
+class Knight : public Piece
 {
 public:
 	Knight(Cell* pos, Color color);

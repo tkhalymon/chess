@@ -1,9 +1,9 @@
 #ifndef __BISHOP_HPP__
 #define __BISHOP_HPP__
 
-#include "figure.hpp"
+#include "piece.hpp"
 
-class Bishop : public Figure
+class Bishop : public Piece
 {
 public:
 	Bishop(Cell* pos, Color color);

@@ -1,9 +1,9 @@
 #ifndef __ROOK_HPP__
 #define __ROOK_HPP__
 
-#include "figure.hpp"
+#include "piece.hpp"
 
-class Rook : public Figure
+class Rook : public Piece
 {
 public:
 	Rook(Cell* pos, Color color);

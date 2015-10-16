@@ -1,11 +1,11 @@
 #ifndef __PAWN_HPP__
 #define __PAWN_HPP__
 
-class Figure;
+class Piece;
 
-#include "figure.hpp"
+#include "piece.hpp"
 
-class Pawn : public Figure
+class Pawn : public Piece
 {
 public:
 	Pawn(Cell* pos, Color color);

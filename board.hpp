@@ -18,6 +18,8 @@ public:
 	Board();
 	~Board();
 
+	void reshape(int width, int height);
+
 	void render();
 	void advance();
 	void click(int button, int state, int x, int y);
@@ -28,15 +30,18 @@ public:
 	bool move(Cell* from, Cell* to);
 private:
 
+	void renderFrame();
+	void renderCells();
+
 	static bool cellEmpty(int x, int y);
 	static Cell cell[8][8];
 
 	Panel sidePanel;
-	bool figureMoves;
-	std::vector<Figure>::iterator selectedFigure;
+	bool pieceMoves;
+	std::vector<Piece>::iterator selectedPiece;
 	Texture texture;
-	std::vector<Figure*> whiteFigure;
-	std::vector<Figure*> blackFigure;
+	std::vector<Piece*> whitePiece;
+	std::vector<Piece*> blackPiece;
 	Cell* selected;
 	Cell* lastPointed;
 	Cell* pointed;
@@ -44,10 +49,11 @@ private:
 	int pointedY;
 	Position boardPos;
 	int cellSize;
-	int winWidth;
-	int winHeight ;
 	Color currentPlayer;
 	std::vector<char* > notation;
+
+	// coordinates to render frame
+	Position frameCoords[8];
 };
 
 #endif

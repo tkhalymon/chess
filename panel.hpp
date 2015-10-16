@@ -17,8 +17,7 @@ public:
 	void init(std::vector<char *>* notation);
 private:
 
-	Position inside[2];
-	Position outside[2];
+	Position coords[8];
 	int width;
 	std::vector<char*>* notation;
 };

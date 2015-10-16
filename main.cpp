@@ -2,6 +2,7 @@
 
 void display();
 void timer(int);
+void reshape(int width, int height);
 void mousePressed(int button, int state, int x, int y);
 void mouseMove(int x, int y);
 void mousePressedMove(int x, int y);
@@ -23,19 +24,19 @@ int main(int argc, char *argv[])
 	glutInitWindowSize(w, h);
 	glutCreateWindow("Chess 1.0 beta");
 	glClearColor(0.0, 0.0, 0.0, 0.0);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glLoadIdentity();
 	glOrtho(0, w, h, 0, -2, 2);
 	glMatrixMode(GL_MODELVIEW);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glutDisplayFunc(display);
 	glutTimerFunc(20, timer, 0);
+	glutReshapeFunc(reshape);
 	glutMouseFunc(mousePressed);
 	glutPassiveMotionFunc(mouseMove);
 	glutMotionFunc(mousePressedMove);
 	glutKeyboardFunc(keyboard);
 	glutSpecialFunc(specialKeyboard);
 	board = new Board();
-	// glutFullScreen();
 	glutMainLoop();
 	return 0;
 }
@@ -43,9 +44,6 @@ int main(int argc, char *argv[])
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	// glTranslated(glutGet(GLUT_WINDOW_WIDTH) / 2, glutGet(GLUT_WINDOW_HEIGHT) / 2, 0);
-	// glRotated(1, 0, 0, 1);
-	// glTranslated(-glutGet(GLUT_WINDOW_WIDTH) / 2, -glutGet(GLUT_WINDOW_HEIGHT) / 2, 0);
 	board->advance();
 	board->render();
 	glutSwapBuffers();
@@ -55,6 +53,17 @@ void timer(int)
 {
 	glutPostRedisplay();
 	glutTimerFunc(2, timer, 0);
+}
+
+void reshape(int width, int height)
+{
+	// glutReshapeWindow(width, height);
+	glViewport(0, 0, width, height);
+	glLoadIdentity();
+	// // std::cerr << glutGet(GLUT_WINDOW_HEIGHT) << "\n";
+	glOrtho(0, width, height, 0, -2, 2);
+	// glMatrixMode(GL_MODELVIEW);
+	board->reshape(width, height);
 }
 
 void mousePressed(int button, int state, int x, int y)

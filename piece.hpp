@@ -1,29 +1,29 @@
-#ifndef __FIGURE_HPP__
-#define __FIGURE_HPP__
+#ifndef __PIECE_HPP__
+#define __PIECE_HPP__
 
-class Figure;
-enum Color {Black, White};
+class Piece;
+enum Color {Black = 0, White = 1};
 
 #include <vector>
 #include "cell.hpp"
 #include "pngtex.hpp"
 
-enum FigureType { FPawn, FKing, FQueen, FBishop, FKnight, FRook };
+enum PieceType { PPawn, PKing, PQueen, PBishop, PKnight, PRook };
 
-class Figure
+class Piece
 {
 public:
-	Figure(Cell* place, Color color);
-	virtual ~Figure();
+	Piece(Cell* place, Color color);
+	virtual ~Piece();
 
 	Color color();
 	std::vector<Cell> possibleMoves();
 	void kill();
 	bool dead();
-	FigureType fType();
+	PieceType fType();
 	virtual void move(Cell* cell);
 	virtual bool movePossible(Cell* cell);
-	virtual void render();
+	void bindTex();
 	static void setCellSize(int size);
 	static bool (*cellEmpty)(int x, int y);
 protected:
@@ -33,7 +33,7 @@ protected:
 	Cell* cell;
 	Color _color;
 	bool _dead;
-	FigureType type;
+	PieceType type;
 };
 
 #endif

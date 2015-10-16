@@ -1,8 +1,8 @@
 #include "knight.hpp"
 
-Knight::Knight(Cell* pos, Color color) : Figure(pos, color)
+Knight::Knight(Cell* pos, Color color) : Piece(pos, color)
 {
-	type = FKnight;
+	type = PKnight;
 	if (color == White)
 	{
 		tex.load("res/wknight.png");

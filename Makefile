@@ -1,6 +1,6 @@
 all: chess
-chess: main.o board.o panel.o cell.o figure.o pngtex.o lodepng.o position.o pawn.o king.o queen.o bishop.o knight.o rook.o
-	g++ -std=c++11 main.o board.o panel.o cell.o figure.o pngtex.o lodepng.o position.o pawn.o king.o queen.o bishop.o knight.o rook.o -lGL -lglut -o chess
+chess: main.o board.o panel.o cell.o piece.o pngtex.o lodepng.o position.o pawn.o king.o queen.o bishop.o knight.o rook.o
+	g++ -std=c++11 main.o board.o panel.o cell.o piece.o pngtex.o lodepng.o position.o pawn.o king.o queen.o bishop.o knight.o rook.o -lGL -lglut -o chess
 
 main.o: main.cpp
 	g++ -std=c++11 -c main.cpp
@@ -10,8 +10,8 @@ panel.o: panel.cpp panel.hpp
 	g++ -std=c++11 -c panel.cpp
 cell.o: cell.cpp cell.hpp
 	g++ -std=c++11 -c cell.cpp
-figure.o: figure.cpp figure.hpp
-	g++ -std=c++11 -c figure.cpp
+piece.o: piece.cpp piece.hpp
+	g++ -std=c++11 -c piece.cpp
 pngtex.o: pngtex.cpp pngtex.hpp
 	g++ -std=c++11 -c pngtex.cpp
 lodepng.o: lodepng.cpp lodepng.h

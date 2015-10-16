@@ -4,7 +4,7 @@
 class Cell;
 
 #include <vector>
-#include "figure.hpp"
+#include "piece.hpp"
 #include "position.hpp"
 
 class Cell
@@ -13,30 +13,24 @@ public:
 	Cell();
 	~Cell();
 
-	void setPos(Position pos, int x, int y);
-
-	Position pos();
-
-	Figure* figure();
-
-	void setFigure(Figure*);
-
+	void setPos(int x, int y, Color c);
+	Piece* piece();
+	void setFigure(Piece*);
+	bool inside(int x, int y);
+	Position* pos();
 	int x();
-
 	int y();
-
 	bool empty();
-
+	void render();
+	void renderPointed();
+	void renderSelected();
 private:
 
-	Position position;
-
+	Position coords[8];
+	Color color;
 	bool busy;
-	
-	Figure* fig;
-
+	Piece* _piece;
 	int _x;
-
 	int _y;
 };
 

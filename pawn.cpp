@@ -1,9 +1,9 @@
 #include "pawn.hpp"
 
-Pawn::Pawn(Cell* pos, Color color) : Figure(pos, color)
+Pawn::Pawn(Cell* pos, Color color) : Piece(pos, color)
 {
 	firstMove = true;
-	type = FPawn;
+	type = PPawn;
 	if (color == White)
 	{
 		tex.load("res/wpawn.png");
@@ -36,12 +36,12 @@ bool Pawn::movePossible(Cell* cell)
 			return true;
 		}
 		if (cell->x() == this->cell->x() + 1 && cell->y() == this->cell->y() + 1
-			&& !cellEmpty(cell->x(), cell->y()) && cell->figure()->color() == White)
+			&& !cellEmpty(cell->x(), cell->y()) && cell->piece()->color() == White)
 		{
 			return true;
 		}
 		if (cell->x() == this->cell->x() - 1 && cell->y() == this->cell->y() + 1
-			&& !cellEmpty(cell->x(), cell->y()) && cell->figure()->color() == White)
+			&& !cellEmpty(cell->x(), cell->y()) && cell->piece()->color() == White)
 		{
 			return true;
 		}
@@ -59,12 +59,12 @@ bool Pawn::movePossible(Cell* cell)
 			return true;
 		}
 		if (cell->x() == this->cell->x() + 1 && cell->y() == this->cell->y() - 1
-			&& !cellEmpty(cell->x(), cell->y()) && cell->figure()->color() == Black)
+			&& !cellEmpty(cell->x(), cell->y()) && cell->piece()->color() == Black)
 		{
 			return true;
 		}
 		if (cell->x() == this->cell->x() - 1 && cell->y() == this->cell->y() - 1
-			&& !cellEmpty(cell->x(), cell->y()) && cell->figure()->color() == Black)
+			&& !cellEmpty(cell->x(), cell->y()) && cell->piece()->color() == Black)
 		{
 			return true;
 		}

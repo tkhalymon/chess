@@ -1,9 +1,9 @@
 #include "king.hpp"
 
-King::King(Cell* pos, Color color) : Figure(pos, color)
+King::King(Cell* pos, Color color) : Piece(pos, color)
 {
 	firstMove = true;
-	type = FKing;
+	type = PKing;
 	if (color == White)
 	{
 		tex.load("res/wking.png");

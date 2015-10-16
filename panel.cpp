@@ -4,13 +4,7 @@
 
 Panel::Panel()
 {
-	width = 170;
-	// int w = glutGet(GLUT_WINDOW_WIDTH);
-	int h = glutGet(GLUT_WINDOW_HEIGHT);
-	inside[0] = Position (h + h / 20, h / 10);
-	inside[1] = Position (h + h / 20 + width, 9 * h / 10);
-	outside[0] = Position (h, h / 20);
-	outside[1] = Position (h + h / 10 + width, 19 * h / 20);
+	
 }
 
 Panel::~Panel()
@@ -25,58 +19,52 @@ void Panel::init(std::vector<char *>* _notation)
 
 void renderString(char* str, int x, int y)
 {
-	glRasterPos2f(x, y);
+	glPushMatrix();
+	// glRasterPos2f(x, y);
 	int len, i;
 	len = (int)strlen((char *)str);
+	glLineWidth(2);
+	glTranslated(x, y, 0);
+	glScaled(0.15, -0.15, 1);
 	for (i = 0; i < len; i++)
-	glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, str[i]);
+		glutStrokeCharacter(GLUT_STROKE_ROMAN, str[i]);
+	glPopMatrix();
 }
 
 void Panel::render()
 {
-	int cellSize = 0;
 	glBegin(GL_QUADS);
-	glColor3d(0, 0, 0);
-	glVertex2d(outside[0].x() + cellSize * (-0.5), outside[0].y() + cellSize * (-0.5));
-	glVertex2d(outside[1].x() + cellSize * (8.5), outside[0].y() + cellSize * (-0.5));
-	glColor3d(0.5, 0.5, 0.5);
-	glVertex2d(inside[1].x() + cellSize * (8.025), inside[0].y() + cellSize * (-0.025));
-	glVertex2d(inside[0].x() + cellSize * (-0.025), inside[0].y() + cellSize * (-0.025));
-	
-	glColor3d(0, 0, 0);
-	glVertex2d(outside[1].x() + cellSize * (8.5), outside[0].y() + cellSize * (-0.5));
-	glVertex2d(outside[1].x() + cellSize * (8.5), outside[1].y() + cellSize * (8.5));
-	glColor3d(0.5, 0.5, 0.5);
-	glVertex2d(inside[1].x() + cellSize * (8.025), inside[1].y() + cellSize * (8.025));
-	glVertex2d(inside[1].x() + cellSize * (8.025), inside[0].y() + cellSize * (-0.025));
-
-	glColor3d(0, 0, 0);
-	glVertex2d(outside[0].x() + cellSize * (-0.5), outside[1].y() + cellSize * (8.5));
-	glVertex2d(outside[1].x() + cellSize * (8.5), outside[1].y() + cellSize * (8.5));
-	glColor3d(0.5, 0.5, 0.5);
-	glVertex2d(inside[1].x() + cellSize * (8.025), inside[1].y() + cellSize * (8.025));
-	glVertex2d(inside[0].x() + cellSize * (-0.025), inside[1].y() + cellSize * (8.025));
-
-	glColor3d(0, 0, 0);
-	glVertex2d(outside[0].x() + cellSize * (-0.5), outside[1].y() + cellSize * (8.5));
-	glVertex2d(outside[0].x() + cellSize * (-0.5), outside[0].y() + cellSize * (-0.5));
-	glColor3d(0.5, 0.5, 0.5);
-	glVertex2d(inside[0].x() + cellSize * (-0.025), inside[0].y() + cellSize * (-0.025));
-	glVertex2d(inside[0].x() + cellSize * (-0.025), inside[1].y() + cellSize * (8.025));
-
-	glVertex2d(inside[0].x(), inside[0].y());
-	glVertex2d(inside[1].x(), inside[0].y());
-	glVertex2d(inside[1].x(), inside[1].y());
-	glVertex2d(inside[0].x(), inside[1].y());
+	for (int i = 0; i < 4; ++i)
+	{
+		glColor3d(0, 0, 0);
+		glVertex2dv(coords[0 + i].v());
+		glVertex2dv(coords[(1 + i) % 4].v());
+		glColor3d(0.7, 0.7, 0.7);
+		glVertex2dv(coords[4 + (1 + i) % 4].v());
+		glVertex2dv(coords[4 + i].v());
+	}
+	glVertex2dv(coords[4].v());
+	glVertex2dv(coords[5].v());
+	glVertex2dv(coords[6].v());
+	glVertex2dv(coords[7].v());
 	glEnd();
-	glColor3d(1, 1, 1);
+	glColor3d(0, 0, 0);
 	for (int i = 0; i < notation->size(); i++)
 	{
-		renderString((*notation)[i], inside[0].x() + 5 + (i % 2) * width / 2, inside[0].y() + 20 + i / 2 * 20);
+		renderString((*notation)[i], coords[4].x() + 5 + (i % 2) * width / 2, coords[4].y() + 20 + i / 2 * 25);
 	}
 }
 
 void Panel::reshape()
 {
-	
+	width = 170;
+	int h = glutGet(GLUT_WINDOW_HEIGHT);
+	coords[0] = Position (h - 0.05 * h, 0.05 * h);
+	coords[1] = Position (h + width + 0.05 * h, 0.05 * h);
+	coords[2] = Position (h + width + 0.05 * h, 0.95 * h);
+	coords[3] = Position (h - 0.05 * h, 0.95 * h);
+	coords[4] = Position (h - 0.0025 * h, 0.0975 * h);
+	coords[5] = Position (h + width + 0.0025 * h, 0.0975 * h);
+	coords[6] = Position (h + width + 0.0025 * h, 0.9025 * h);
+	coords[7] = Position (h - 0.0025 * h, 0.9025 * h);
 }
