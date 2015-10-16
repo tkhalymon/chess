@@ -4,34 +4,34 @@ Cell Board::cell[8][8];
 
 Board::Board()
 {
-	sidePanel.init(&notation);
+	panel.init(&notation);
 	currentPlayer = White;
 	pieceMoves = false;
 	for (int i = 0; i < 8; ++i)
 	{
-		whitePiece.push_back(new Pawn(&cell[i][6], White));
+		white.piece.push_back(new Pawn(&cell[i][6], White));
 	}
-	whitePiece.push_back(new Rook(&cell[0][7], White));
-	whitePiece.push_back(new Rook(&cell[7][7], White));
-	whitePiece.push_back(new Knight(&cell[1][7], White));
-	whitePiece.push_back(new Knight(&cell[6][7], White));
-	whitePiece.push_back(new Bishop(&cell[2][7], White));
-	whitePiece.push_back(new Bishop(&cell[5][7], White));
-	whitePiece.push_back(new Queen(&cell[3][7], White));
-	whitePiece.push_back(new King(&cell[4][7], White));
+	white.piece.push_back(new Rook(&cell[0][7], White));
+	white.piece.push_back(new Rook(&cell[7][7], White));
+	white.piece.push_back(new Knight(&cell[1][7], White));
+	white.piece.push_back(new Knight(&cell[6][7], White));
+	white.piece.push_back(new Bishop(&cell[2][7], White));
+	white.piece.push_back(new Bishop(&cell[5][7], White));
+	white.piece.push_back(new Queen(&cell[3][7], White));
+	white.piece.push_back(new King(&cell[4][7], White));
 	
 	for (int i = 0; i < 8; ++i)
 	{
-		blackPiece.push_back(new Pawn(&cell[i][1], Black));
+		black.piece.push_back(new Pawn(&cell[i][1], Black));
 	}
-	blackPiece.push_back(new Rook(&cell[0][0], Black));
-	blackPiece.push_back(new Rook(&cell[7][0], Black));
-	blackPiece.push_back(new Knight(&cell[1][0], Black));
-	blackPiece.push_back(new Knight(&cell[6][0], Black));
-	blackPiece.push_back(new Bishop(&cell[2][0], Black));
-	blackPiece.push_back(new Bishop(&cell[5][0], Black));
-	blackPiece.push_back(new Queen(&cell[3][0], Black));
-	blackPiece.push_back(new King(&cell[4][0], Black));
+	black.piece.push_back(new Rook(&cell[0][0], Black));
+	black.piece.push_back(new Rook(&cell[7][0], Black));
+	black.piece.push_back(new Knight(&cell[1][0], Black));
+	black.piece.push_back(new Knight(&cell[6][0], Black));
+	black.piece.push_back(new Bishop(&cell[2][0], Black));
+	black.piece.push_back(new Bishop(&cell[5][0], Black));
+	black.piece.push_back(new Queen(&cell[3][0], Black));
+	black.piece.push_back(new King(&cell[4][0], Black));
 
 	Piece::cellEmpty = cellEmpty;
 	selected = NULL;
@@ -39,11 +39,11 @@ Board::Board()
 
 Board::~Board()
 {
-	for (std::vector<Piece*>::iterator i = whitePiece.begin(); i != whitePiece.end(); ++i)
+	for (std::vector<Piece*>::iterator i = white.piece.begin(); i != white.piece.end(); ++i)
 	{
 		delete (*i);
 	}
-	for (std::vector<Piece*>::iterator i = blackPiece.begin(); i != blackPiece.end(); ++i)
+	for (std::vector<Piece*>::iterator i = black.piece.begin(); i != black.piece.end(); ++i)
 	{
 		delete (*i);
 	}
@@ -53,26 +53,57 @@ void Board::render()
 {
 	renderFrame();
 	renderCells();
-	sidePanel.render();
+	if (panel.enabled())
+	{
+		panel.render();
+	}
+}
+
+void Board::reshape(int width, int height)
+{
+	if (height < 500)
+	{
+		glutReshapeWindow(500, 500);
+	}
+	if (panel.enabled())
+	{
+		if (width < height * 1.1 + panel.width())
+		{
+			glutReshapeWindow(height * 1.1 + panel.width(), height);
+		}
+	}
+	else
+	{
+		if (width < height)
+		{
+			glutReshapeWindow(height, height);
+		}
+	}
+	glViewport(0, 0, width, height);
+	glLoadIdentity();
+	glOrtho(0, width, height, 0, -2, 2);
+	
+	frameCoords[0] = Position (0.05 * height, 0.05 * height);
+	frameCoords[1] = Position (0.95 * height, 0.05 * height);
+	frameCoords[2] = Position (0.95 * height, 0.95 * height);
+	frameCoords[3] = Position (0.05 * height, 0.95 * height);
+	frameCoords[4] = Position (0.09875 * height, 0.09875 * height);
+	frameCoords[5] = Position (0.90125 * height, 0.09875 * height);
+	frameCoords[6] = Position (0.90125 * height, 0.90125 * height);
+	frameCoords[7] = Position (0.09875 * height, 0.90125 * height);
+	for (int i = 0; i < 8; ++i)
+	{
+		for (int j = 0; j < 8; ++j)
+		{
+			cell[i][j].setPos(i, j, (i + j) % 2 ? Black : White);
+		}
+	}
+	panel.reshape();
 }
 
 void Board::advance()
 {
 
-}
-
-void Board::click(int button, int state, int x, int y)
-{
-	for (int i = 0; i < 8; ++i)
-	{
-		for (int j = 0; j < 8; ++j)
-		{
-			if (cell[i][j].inside(x, y))
-			{
-				point(&cell[i][j]);
-			}
-		}
-	}
 }
 
 void Board::point(Cell* cell)
@@ -99,6 +130,20 @@ void Board::point(Cell* cell)
 				else currentPlayer = Black;
 			}
 			selected = NULL;
+		}
+	}
+}
+
+void Board::click(int button, int state, int x, int y)
+{
+	for (int i = 0; i < 8; ++i)
+	{
+		for (int j = 0; j < 8; ++j)
+		{
+			if (cell[i][j].inside(x, y))
+			{
+				point(&cell[i][j]);
+			}
 		}
 	}
 }
@@ -150,6 +195,22 @@ void Board::keypressed (unsigned char key)
 	pointed = &cell[pointedX][pointedY];
 }
 
+bool Board::move(Cell* from, Cell* to)
+{
+	if (from->piece()->movePossible(to))
+ 	{
+ 		writeNotation(from, to);
+ 		if (!to->empty())
+ 		{
+			to->piece()->kill();
+			to->setFigure(NULL);
+ 		}
+ 		from->piece()->move(to);
+ 		return true;
+ 	}
+ 	return false;
+}
+
 void Board::writeNotation(Cell* from, Cell* to)
 {
 	char buffer[20];
@@ -169,47 +230,6 @@ void Board::writeNotation(Cell* from, Cell* to)
 	sprintf(buffer, "%s%c%d%c%c%d\n", ftype, 'a' + from->x(), 8 - from->y(), action, 'a' + to->x(), 8 - to->y());
  	notation.push_back(new char[20]);
  	strcpy(notation.back(), buffer);
-}
-
-bool Board::move(Cell* from, Cell* to)
-{
-	if (from->piece()->movePossible(to))
- 	{
- 		writeNotation(from, to);
- 		if (!to->empty())
- 		{
-			to->piece()->kill();
-			to->setFigure(NULL);
- 		}
- 		from->piece()->move(to);
- 		return true;
- 	}
- 	return false;
-}
-
-bool Board::cellEmpty(int x, int y)
-{
-	return cell[x][y].empty();
-}
-
-void Board::reshape(int width, int height)
-{
-	frameCoords[0] = Position (0.05 * height, 0.05 * height);
-	frameCoords[1] = Position (0.95 * height, 0.05 * height);
-	frameCoords[2] = Position (0.95 * height, 0.95 * height);
-	frameCoords[3] = Position (0.05 * height, 0.95 * height);
-	frameCoords[4] = Position (0.09875 * height, 0.09875 * height);
-	frameCoords[5] = Position (0.90125 * height, 0.09875 * height);
-	frameCoords[6] = Position (0.90125 * height, 0.90125 * height);
-	frameCoords[7] = Position (0.09875 * height, 0.90125 * height);
-	for (int i = 0; i < 8; ++i)
-	{
-		for (int j = 0; j < 8; ++j)
-		{
-			cell[i][j].setPos(i, j, (i + j) % 2 ? Black : White);
-		}
-	}
-	sidePanel.reshape();
 }
 
 void Board::renderFrame()
@@ -240,47 +260,9 @@ void Board::renderCells()
 	if (pointed != NULL) pointed->renderPointed();
 	if (selected != NULL) selected->renderSelected();
 	glEnd();
-	// glEnable(GL_BLEND);
-	// glBegin(GL_QUADS);
-	// for (int i = 0; i < 8; ++i)
-	// {
-	// 	for (int j = 0; j < 8; ++j)
-	// 	{
-	// 		if ((i + j) % 2 == 0) glColor3d(0.3, 0.3, 0.3);
-	// 		else glColor3d(0.7, 0.7, 0.7);
-	// 		glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.025));
-	// 		glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.025));
-	// 		glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.975));
-	// 		glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.975));
-	// 		if (selected == &cell[i][j] || pointed == &cell[i][j])
-	// 		{
-	// 			if (selected == &cell[i][j])
-	// 				glColor3d(0, 1, 0);
-	// 			else
-	// 				glColor4d(0, 1, 0, 0.5);
+}
 
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.025));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.025));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.900), boardPos.y() + cellSize * (j + 0.100));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.100), boardPos.y() + cellSize * (j + 0.100));
-				
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.900), boardPos.y() + cellSize * (j + 0.100));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.025));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.975));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.900), boardPos.y() + cellSize * (j + 0.900));
-
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.100), boardPos.y() + cellSize * (j + 0.900));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.900), boardPos.y() + cellSize * (j + 0.900));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.975), boardPos.y() + cellSize * (j + 0.975));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.975));
-
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.025));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.100), boardPos.y() + cellSize * (j + 0.100));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.100), boardPos.y() + cellSize * (j + 0.900));
-	// 			glVertex2d(boardPos.x() + cellSize * (i + 0.025), boardPos.y() + cellSize * (j + 0.975));
-	// 		}
-	// 	}
-	// }
-	// glEnd();
-	// glDisable(GL_BLEND);
+bool Board::cellEmpty(int x, int y)
+{
+	return cell[x][y].empty();
 }

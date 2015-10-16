@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"glutResha",
+				"glutReshapeWindow(int width, int height)	void"
+			],
+			[
+				"glVerte2d",
+				"glVertex2d(GLdouble x, GLdouble y)	void"
+			],
+			[
+				"re",
+				"reshape()	void"
+			],
+			[
+				"s",
+				"setPos(int x, int y, Color c)	void"
+			],
+			[
+				"cell",
+				"cell	Cell [8][8]"
+			],
+			[
+				"glVertex2d",
+				"glVertex2dv(const GLdouble *v)	void"
+			],
+			[
+				"render",
+				"renderFrame()	void"
+			],
+			[
+				"GLUT_",
+				"GLUT_STROKE_ROMAN	macro"
+			],
+			[
+				"rendr",
+				"renderString(char *str, int x, int y)	void"
+			],
+			[
 				"p",
 				"panel	Position [2]"
 			],
@@ -26,10 +62,6 @@
 			[
 				"mo",
 				"movePossible(Cell *cell)	bool"
-			],
-			[
-				"cell",
-				"cell	Cell [8][8]"
 			],
 			[
 				"fi",
@@ -172,10 +204,6 @@
 				"nodeNum	int"
 			],
 			[
-				"glVertex2d",
-				"glVertex2d(GLdouble x, GLdouble y)	void"
-			],
-			[
 				"b",
 				"binary	const openmode"
 			],
@@ -202,10 +230,6 @@
 			[
 				"no",
 				"noBadStudents	bool"
-			],
-			[
-				"s",
-				"stud	student *"
 			],
 			[
 				"gro",
@@ -408,10 +432,6 @@
 				"reqSubsNum	int"
 			],
 			[
-				"re",
-				"reqSubsNum	int"
-			],
-			[
 				"bubble",
 				"bubbleSwap	int"
 			],
@@ -451,7 +471,7 @@
 			"file": "main.cpp",
 			"settings":
 			{
-				"buffer_size": 1913,
+				"buffer_size": 2045,
 				"line_ending": "Unix"
 			}
 		},
@@ -459,7 +479,7 @@
 			"file": "board.hpp",
 			"settings":
 			{
-				"buffer_size": 1016,
+				"buffer_size": 1118,
 				"line_ending": "Unix"
 			}
 		},
@@ -467,7 +487,7 @@
 			"file": "board.cpp",
 			"settings":
 			{
-				"buffer_size": 9123,
+				"buffer_size": 7517,
 				"line_ending": "Unix"
 			}
 		},
@@ -475,7 +495,7 @@
 			"file": "panel.hpp",
 			"settings":
 			{
-				"buffer_size": 264,
+				"buffer_size": 294,
 				"line_ending": "Unix",
 				"name": "panel.hpp"
 			}
@@ -484,7 +504,7 @@
 			"file": "panel.cpp",
 			"settings":
 			{
-				"buffer_size": 2097,
+				"buffer_size": 1576,
 				"line_ending": "Unix",
 				"name": "panel.cpp"
 			}
@@ -493,7 +513,7 @@
 			"file": "cell.hpp",
 			"settings":
 			{
-				"buffer_size": 397,
+				"buffer_size": 485,
 				"line_ending": "Unix"
 			}
 		},
@@ -501,23 +521,23 @@
 			"file": "cell.cpp",
 			"settings":
 			{
-				"buffer_size": 397,
+				"buffer_size": 2478,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "figure.hpp",
+			"file": "piece.hpp",
 			"settings":
 			{
-				"buffer_size": 688,
+				"buffer_size": 680,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "figure.cpp",
+			"file": "piece.cpp",
 			"settings":
 			{
-				"buffer_size": 1329,
+				"buffer_size": 698,
 				"line_ending": "Unix"
 			}
 		},
@@ -525,7 +545,7 @@
 			"file": "pawn.hpp",
 			"settings":
 			{
-				"buffer_size": 229,
+				"buffer_size": 226,
 				"line_ending": "Unix"
 			}
 		},
@@ -533,7 +553,7 @@
 			"file": "pawn.cpp",
 			"settings":
 			{
-				"buffer_size": 1597,
+				"buffer_size": 1528,
 				"line_ending": "Unix"
 			}
 		},
@@ -541,7 +561,7 @@
 			"file": "king.hpp",
 			"settings":
 			{
-				"buffer_size": 231,
+				"buffer_size": 266,
 				"line_ending": "Unix"
 			}
 		},
@@ -549,7 +569,7 @@
 			"file": "king.cpp",
 			"settings":
 			{
-				"buffer_size": 526,
+				"buffer_size": 583,
 				"line_ending": "Unix"
 			}
 		},
@@ -557,7 +577,7 @@
 			"file": "queen.hpp",
 			"settings":
 			{
-				"buffer_size": 192,
+				"buffer_size": 190,
 				"line_ending": "Unix"
 			}
 		},
@@ -565,7 +585,7 @@
 			"file": "queen.cpp",
 			"settings":
 			{
-				"buffer_size": 1016,
+				"buffer_size": 1015,
 				"line_ending": "Unix"
 			}
 		},
@@ -573,7 +593,7 @@
 			"file": "bishop.hpp",
 			"settings":
 			{
-				"buffer_size": 197,
+				"buffer_size": 195,
 				"line_ending": "Unix"
 			}
 		},
@@ -581,7 +601,7 @@
 			"file": "bishop.cpp",
 			"settings":
 			{
-				"buffer_size": 786,
+				"buffer_size": 785,
 				"line_ending": "Unix"
 			}
 		},
@@ -589,7 +609,7 @@
 			"file": "knight.hpp",
 			"settings":
 			{
-				"buffer_size": 197,
+				"buffer_size": 195,
 				"line_ending": "Unix"
 			}
 		},
@@ -597,7 +617,7 @@
 			"file": "knight.cpp",
 			"settings":
 			{
-				"buffer_size": 480,
+				"buffer_size": 479,
 				"line_ending": "Unix"
 			}
 		},
@@ -605,7 +625,7 @@
 			"file": "rook.hpp",
 			"settings":
 			{
-				"buffer_size": 238,
+				"buffer_size": 236,
 				"line_ending": "Unix"
 			}
 		},
@@ -613,7 +633,7 @@
 			"file": "rook.cpp",
 			"settings":
 			{
-				"buffer_size": 1062,
+				"buffer_size": 1061,
 				"line_ending": "Unix"
 			}
 		},
@@ -621,7 +641,7 @@
 			"file": "Makefile",
 			"settings":
 			{
-				"buffer_size": 1147,
+				"buffer_size": 1141,
 				"line_ending": "Unix"
 			}
 		}
@@ -629,9 +649,13 @@
 	"build_system": "Packages/Makefile/Make.sublime-build",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 138.0,
 		"selected_items":
 		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
 			[
 				"ins",
 				"Package Control: Install Package"
@@ -662,6 +686,14 @@
 	},
 	"file_history":
 	[
+		"/home/taras/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/taras/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/taras/dev/chss/panel.cpp",
+		"/home/taras/dev/chess/position.hpp",
+		"/home/taras/dev/chess/figure.cpp",
+		"/home/taras/dev/chess/figure.hpp",
+		"/home/taras/dev/chess/null",
+		"/home/taras/dev/investigation/opengl string/glstr.cpp",
 		"/home/taras/.config/sublime-text-2/Packages/Makefile/Make.sublime-build",
 		"/home/taras/dev/Dasha/lab2_ver1.c",
 		"/home/taras/dev/chess/vg_test",
@@ -671,7 +703,6 @@
 		"/home/taras/.config/sublime-text-2/Packages/SublimeClang/SublimeClang.sublime-settings",
 		"/home/taras/dev/chess/board.cpp",
 		"/home/taras/dev/chess/position.cpp",
-		"/home/taras/dev/chess/position.hpp",
 		"/home/taras/dev/chess/pngtex.hpp",
 		"/home/taras/dev/chess/lodepng.h",
 		"/home/taras/dev/chess/lodepng.cpp",
@@ -680,8 +711,6 @@
 		"/home/taras/dev/chess/board.hpp",
 		"/home/taras/dev/chess/cell.cpp",
 		"/home/taras/dev/chess/cell.hpp",
-		"/home/taras/dev/chess/figure.cpp",
-		"/home/taras/dev/chess/figure.hpp",
 		"/home/taras/dev/chess/king.cpp",
 		"/home/taras/dev/chess/king.hpp",
 		"/home/taras/dev/chess/knight.cpp",
@@ -720,7 +749,6 @@
 		"/home/taras/dev/city-simulator/makefile",
 		"/home/taras/makefile",
 		"/home/taras/.config/sublime-text-2/Packages/C++/C++.sublime-build",
-		"/home/taras/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/taras/Downloads/map.osm",
 		"/home/taras/Downloads/graph.txt",
 		"/home/taras/Downloads/main (1).cpp",
@@ -754,7 +782,6 @@
 		"/media/data/projects/map-editor/input.dat",
 		"/home/taras/Downloads/graph_01_2.txt",
 		"/media/data/projects/map-editor/makefile",
-		"/home/taras/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/taras/Downloads/labb1.cpp",
 		"/home/taras/main.cpp",
 		"/C/Users/Taras/Downloads/Program (1).cs",
@@ -786,10 +813,7 @@
 		"/C/Users/Taras/city-simulator/engine/car.cpp",
 		"/C/Users/Taras/Downloads/sources/makefile",
 		"/C/Users/Taras/Downloads/main.cpp",
-		"/C/Users/Taras/Desktop/main.cpp",
-		"/C/Users/Taras/Desktop/makefile",
-		"/C/main.cpp",
-		"/C/makefile"
+		"/C/Users/Taras/Desktop/main.cpp"
 	],
 	"find":
 	{
@@ -797,7 +821,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 123.0,
 		"where_history":
 		[
 			""
@@ -808,6 +832,87 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"l",
+			"Figure",
+			"}\n		",
+			"{\n		",
+			"}\n		",
+			"{\n		",
+			"95",
+			"1.05",
+			"9025",
+			"0975",
+			"inside[0]",
+			"White",
+			"frameCoords",
+			"renderFrame",
+			"height",
+			" + h / 20",
+			"10",
+			"coords",
+			"fig",
+			"cellCoords",
+			"1",
+			"7",
+			"9",
+			"0.1",
+			"95",
+			"05",
+			"0.3",
+			"frameCoords",
+			"9",
+			"1.1",
+			"1",
+			"];\n",
+			"(1 + i)",
+			"975",
+			"025",
+			"10",
+			"95",
+			"05",
+			"render",
+			"0",
+			"ftype",
+			"figure",
+			"Figure",
+			"figure",
+			"Figure",
+			"figure",
+			"Figure",
+			"figure",
+			"Figure",
+			"figure",
+			"Figure",
+			"figure",
+			"F",
+			"blackFigure",
+			"whitePiece",
+			"whiteFigure",
+			"Figure",
+			"figureMoves",
+			"figure",
+			"figureMoves",
+			"Figure",
+			"FigureType",
+			"Figure",
+			"__FIGURE_HPP__",
+			"Figure",
+			"F",
+			"FPawn",
+			"Figure",
+			"to->figure()->kill();\n				to->setFigure(NULL);",
+			"ction",
+			"-%c",
+			"-",
+			"1",
+			"0",
+			"notation",
+			"string",
+			"0.7",
+			"0.2, 0.2, 0.2",
+			"2",
+			"0, 0, 0",
+			"10",
 			"])",
 			"board",
 			"board.o ",
@@ -854,88 +959,7 @@
 			"for (std::vector<Figure*>::iterator k = whiteFigure.begin(); k < whiteFigure.end(); ++k)",
 			"blackFigure",
 			"if (to->figure() == *k && !to->figure()->dead())\n					{\n						to->figure()->kill();\n						to->setFigure(NULL);",
-			"if (to->figure() == *k && !to->figure()->dead())\n					{\n						to->figure()->kill();\n						to->setFigure(NULL);\n						blackFigure.erase(k);\n						break;\n					}",
-			"to.",
-			"selected",
-			"from",
-			"selected",
-			"from",
-			"cell[x][y]",
-			"j",
-			"i",
-			"King",
-			"x",
-			"Queen",
-			"White",
-			"blackFigure",
-			"i",
-			"firstMove",
-			"0.4",
-			"0.6",
-			"0.7",
-			"0.5",
-			"0.3",
-			"0.8",
-			"95",
-			"7",
-			"king",
-			"7",
-			"White",
-			"rook",
-			"Rook",
-			"rook",
-			"Rook",
-			"rook",
-			"Rook",
-			"rook",
-			"Rook",
-			"pawn",
-			"wpawn",
-			"Pawn",
-			"();",
-			"ROOK",
-			"0",
-			"25",
-			"095",
-			"25",
-			"cellSize",
-			".",
-			"300",
-			"600",
-			"610",
-			"-",
-			"1.",
-			"/2.",
-			"1/",
-			"1/3",
-			"(0.05)",
-			" -c",
-			"97",
-			"03",
-			"07",
-			"5",
-			"50",
-			" + 0.95",
-			"0.9",
-			" + 1",
-			"3",
-			"CREEN",
-			"_SCREEN",
-			"GLUT_SCREEN_HEIGHT",
-			"boardPos.y",
-			"lodepng",
-			"board",
-			"tex",
-			".o",
-			"PNGTex",
-			";\n",
-			"	\n",
-			"2",
-			"5",
-			"70",
-			"30",
-			"int",
-			"Pos"
+			"if (to->figure() == *k && !to->figure()->dead())\n					{\n						to->figure()->kill();\n						to->setFigure(NULL);\n						blackFigure.erase(k);\n						break;\n					}"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -943,6 +967,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Piece"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -953,7 +978,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 12,
 			"sheets":
 			[
 				{
@@ -961,15 +986,15 @@
 					"file": "main.cpp",
 					"settings":
 					{
-						"buffer_size": 1913,
+						"buffer_size": 2045,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								461,
-								461
+								1332,
+								1332
 							]
 						],
 						"settings":
@@ -978,7 +1003,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 336.0,
+						"translation.y": 2523.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -988,15 +1013,15 @@
 					"file": "board.hpp",
 					"settings":
 					{
-						"buffer_size": 1016,
+						"buffer_size": 1118,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								637,
-								637
+								636,
+								636
 							]
 						],
 						"settings":
@@ -1005,7 +1030,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 504.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1015,15 +1040,15 @@
 					"file": "board.cpp",
 					"settings":
 					{
-						"buffer_size": 9123,
+						"buffer_size": 7517,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								61,
-								61
+								1170,
+								1170
 							]
 						],
 						"settings":
@@ -1032,7 +1057,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 485.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1042,15 +1067,15 @@
 					"file": "panel.hpp",
 					"settings":
 					{
-						"buffer_size": 264,
+						"buffer_size": 294,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								99,
-								99
+								271,
+								271
 							]
 						],
 						"settings":
@@ -1059,7 +1084,7 @@
 							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 87.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1069,24 +1094,25 @@
 					"file": "panel.cpp",
 					"settings":
 					{
-						"buffer_size": 2097,
+						"buffer_size": 1576,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1955,
-								1955
+								1574,
+								1574
 							]
 						],
 						"settings":
 						{
 							"auto_name": "panel.cpp",
-							"syntax": "Packages/C++/C++.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 896.0,
+						"translation.y": 609.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1096,15 +1122,15 @@
 					"file": "cell.hpp",
 					"settings":
 					{
-						"buffer_size": 397,
+						"buffer_size": 485,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								120,
-								120
+								392,
+								392
 							]
 						],
 						"settings":
@@ -1113,7 +1139,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 78.0,
+						"translation.y": 218.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1123,20 +1149,47 @@
 					"file": "cell.cpp",
 					"settings":
 					{
-						"buffer_size": 397,
+						"buffer_size": 2478,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								124,
-								124
+								837,
+								837
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3045.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "piece.hpp",
+					"settings":
+					{
+						"buffer_size": 680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								471,
+								471
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1145,46 +1198,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "figure.hpp",
-					"settings":
-					{
-						"buffer_size": 688,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								213,
-								213
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 156.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 8,
-					"file": "figure.cpp",
+					"file": "piece.cpp",
 					"settings":
 					{
-						"buffer_size": 1329,
+						"buffer_size": 698,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								441,
-								441
+								452,
+								452
 							]
 						],
 						"settings":
@@ -1193,7 +1219,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 728.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1203,15 +1229,15 @@
 					"file": "pawn.hpp",
 					"settings":
 					{
-						"buffer_size": 229,
+						"buffer_size": 226,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								218,
-								218
+								226,
+								226
 							]
 						],
 						"settings":
@@ -1229,15 +1255,15 @@
 					"file": "pawn.cpp",
 					"settings":
 					{
-						"buffer_size": 1597,
+						"buffer_size": 1528,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								112,
-								112
+								1508,
+								1508
 							]
 						],
 						"settings":
@@ -1246,7 +1272,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1256,15 +1282,15 @@
 					"file": "king.hpp",
 					"settings":
 					{
-						"buffer_size": 231,
+						"buffer_size": 266,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								149,
+								149
 							]
 						],
 						"settings":
@@ -1282,15 +1308,15 @@
 					"file": "king.cpp",
 					"settings":
 					{
-						"buffer_size": 526,
+						"buffer_size": 583,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								111,
-								111
+								227,
+								227
 							]
 						],
 						"settings":
@@ -1309,15 +1335,15 @@
 					"file": "queen.hpp",
 					"settings":
 					{
-						"buffer_size": 192,
+						"buffer_size": 190,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								181,
-								181
+								93,
+								93
 							]
 						],
 						"settings":
@@ -1335,15 +1361,15 @@
 					"file": "queen.cpp",
 					"settings":
 					{
-						"buffer_size": 1016,
+						"buffer_size": 1015,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								96,
-								96
+								90,
+								90
 							]
 						],
 						"settings":
@@ -1362,15 +1388,15 @@
 					"file": "bishop.hpp",
 					"settings":
 					{
-						"buffer_size": 197,
+						"buffer_size": 195,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								187,
-								187
+								96,
+								96
 							]
 						],
 						"settings":
@@ -1388,15 +1414,15 @@
 					"file": "bishop.cpp",
 					"settings":
 					{
-						"buffer_size": 786,
+						"buffer_size": 785,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								100,
-								100
+								93,
+								93
 							]
 						],
 						"settings":
@@ -1415,15 +1441,15 @@
 					"file": "knight.hpp",
 					"settings":
 					{
-						"buffer_size": 197,
+						"buffer_size": 195,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								154,
-								154
+								96,
+								96
 							]
 						],
 						"settings":
@@ -1431,7 +1457,7 @@
 							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 28.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1441,15 +1467,15 @@
 					"file": "knight.cpp",
 					"settings":
 					{
-						"buffer_size": 480,
+						"buffer_size": 479,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								100,
-								100
+								93,
+								93
 							]
 						],
 						"settings":
@@ -1458,7 +1484,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 26.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1468,15 +1494,15 @@
 					"file": "rook.hpp",
 					"settings":
 					{
-						"buffer_size": 238,
+						"buffer_size": 236,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								211,
-								211
+								90,
+								90
 							]
 						],
 						"settings":
@@ -1484,7 +1510,7 @@
 							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 28.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1494,15 +1520,15 @@
 					"file": "rook.cpp",
 					"settings":
 					{
-						"buffer_size": 1062,
+						"buffer_size": 1061,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								196,
-								196
+								106,
+								106
 							]
 						],
 						"settings":
@@ -1521,15 +1547,35 @@
 					"file": "Makefile",
 					"settings":
 					{
-						"buffer_size": 1147,
+						"buffer_size": 1141,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								396,
-								396
+								53,
+								53
+							],
+							[
+								184,
+								184
+							],
+							[
+								506,
+								506
+							],
+							[
+								515,
+								515
+							],
+							[
+								525,
+								525
+							],
+							[
+								554,
+								554
 							]
 						],
 						"settings":

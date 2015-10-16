@@ -4,7 +4,7 @@
 
 Panel::Panel()
 {
-	
+	show = false;
 }
 
 Panel::~Panel()
@@ -51,20 +51,40 @@ void Panel::render()
 	glColor3d(0, 0, 0);
 	for (int i = 0; i < notation->size(); i++)
 	{
-		renderString((*notation)[i], coords[4].x() + 5 + (i % 2) * width / 2, coords[4].y() + 20 + i / 2 * 25);
+		renderString((*notation)[i], coords[4].x() + 5 + (i % 2) * _width / 2, coords[4].y() + 20 + i / 2 * 25);
 	}
 }
 
 void Panel::reshape()
 {
-	width = 170;
+	_width = 170;
 	int h = glutGet(GLUT_WINDOW_HEIGHT);
 	coords[0] = Position (h - 0.05 * h, 0.05 * h);
-	coords[1] = Position (h + width + 0.05 * h, 0.05 * h);
-	coords[2] = Position (h + width + 0.05 * h, 0.95 * h);
+	coords[1] = Position (h + _width + 0.05 * h, 0.05 * h);
+	coords[2] = Position (h + _width + 0.05 * h, 0.95 * h);
 	coords[3] = Position (h - 0.05 * h, 0.95 * h);
 	coords[4] = Position (h - 0.0025 * h, 0.0975 * h);
-	coords[5] = Position (h + width + 0.0025 * h, 0.0975 * h);
-	coords[6] = Position (h + width + 0.0025 * h, 0.9025 * h);
+	coords[5] = Position (h + _width + 0.0025 * h, 0.0975 * h);
+	coords[6] = Position (h + _width + 0.0025 * h, 0.9025 * h);
 	coords[7] = Position (h - 0.0025 * h, 0.9025 * h);
+}
+
+int Panel::width()
+{
+	return _width;
+}
+
+void Panel::enable()
+{
+	show = true;
+}
+
+void Panel::disable()
+{
+	show = false;
+}
+
+bool Panel::enabled()
+{
+	return show;
 }

@@ -2,6 +2,7 @@
 #define __KING_HPP__
 
 #include "piece.hpp"
+#include "rook.hpp"
 
 class King : public Piece
 {
@@ -11,7 +12,8 @@ public:
 	void move(Cell*);
 	bool movePossible(Cell* cell);
 private:
-	bool firstMove;
+	bool lCastling;
+	bool rCastling;
 };
 
 #endif

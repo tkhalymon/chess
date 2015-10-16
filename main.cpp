@@ -18,12 +18,12 @@ int main(int argc, char *argv[])
 	glutInit(&argc, argv);
 	// int w = glutGet(GLUT_SCREEN_WIDTH);
 	// int h = glutGet(GLUT_SCREEN_HEIGHT);
-	int w = 900;
+	int w = 640;
 	int h = 640;
 	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA);
 	glutInitWindowSize(w, h);
 	glutCreateWindow("Chess 1.0 beta");
-	glClearColor(0.0, 0.0, 0.0, 0.0);
+	glClearColor(0.05, 0.05, 0.05, 0.0);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glLoadIdentity();
 	glOrtho(0, w, h, 0, -2, 2);
@@ -57,12 +57,6 @@ void timer(int)
 
 void reshape(int width, int height)
 {
-	// glutReshapeWindow(width, height);
-	glViewport(0, 0, width, height);
-	glLoadIdentity();
-	// // std::cerr << glutGet(GLUT_WINDOW_HEIGHT) << "\n";
-	glOrtho(0, width, height, 0, -2, 2);
-	// glMatrixMode(GL_MODELVIEW);
 	board->reshape(width, height);
 }
 

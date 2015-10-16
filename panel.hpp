@@ -15,11 +15,20 @@ public:
 	void reshape();
 
 	void init(std::vector<char *>* notation);
+
+	int width();
+
+	void enable();
+	
+	void disable();
+
+	bool enabled();
 private:
 
 	Position coords[8];
-	int width;
+	int _width;
 	std::vector<char*>* notation;
+	bool show;
 };
 
 #endif

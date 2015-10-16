@@ -2,7 +2,8 @@
 
 King::King(Cell* pos, Color color) : Piece(pos, color)
 {
-	firstMove = true;
+	lCastling = true;
+	rCastling = true;
 	type = PKing;
 	if (color == White)
 	{
@@ -21,7 +22,8 @@ King::~King()
 
 void King::move(Cell* cell)
 {
-	firstMove = false;
+	lCastling = false;
+	rCastling = false;
 	this->cell->setFigure(NULL);
 	this->cell = cell;
 	this->cell->setFigure(this);
@@ -30,8 +32,10 @@ void King::move(Cell* cell)
 bool King::movePossible(Cell* cell)
 {
 	if (abs(this->cell->x() - cell->x()) <= 1 && abs(this->cell->y() - cell->y()) <= 1)
-	{
 		return true;
+	if (lCastling)
+	{
+		
 	}
 	return false;
 }
