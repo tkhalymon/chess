@@ -3,6 +3,7 @@
 King::King(Cell* pos, Color color) : Figure(pos, color)
 {
 	firstMove = true;
+	type = FKing;
 	if (color == White)
 	{
 		tex.load("res/wking.png");

@@ -31,6 +31,11 @@ bool Figure::dead()
 	return _dead;
 }
 
+FigureType Figure::fType()
+{
+	return type;
+}
+
 void Figure::render()
 {
 	tex.use();

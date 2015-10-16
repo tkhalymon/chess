@@ -3,6 +3,7 @@
 Rook::Rook(Cell* pos, Color color) : Figure(pos, color)
 {
 	firstMove = true;
+	type = FRook;
 	if (color == White)
 	{
 		tex.load("res/wrook.png");

@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	glutInit(&argc, argv);
 	// int w = glutGet(GLUT_SCREEN_WIDTH);
 	// int h = glutGet(GLUT_SCREEN_HEIGHT);
-	int w = 640;
+	int w = 900;
 	int h = 640;
 	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA);
 	glutInitWindowSize(w, h);

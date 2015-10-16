@@ -8,6 +8,7 @@ enum Color {Black, White};
 #include "cell.hpp"
 #include "pngtex.hpp"
 
+enum FigureType { FPawn, FKing, FQueen, FBishop, FKnight, FRook };
 
 class Figure
 {
@@ -19,6 +20,7 @@ public:
 	std::vector<Cell> possibleMoves();
 	void kill();
 	bool dead();
+	FigureType fType();
 	virtual void move(Cell* cell);
 	virtual bool movePossible(Cell* cell);
 	virtual void render();
@@ -27,11 +29,11 @@ public:
 protected:
 
 	static int cellSize;
-	
 	Texture tex;
 	Cell* cell;
 	Color _color;
 	bool _dead;
+	FigureType type;
 };
 
 #endif

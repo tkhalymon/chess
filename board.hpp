@@ -10,6 +10,7 @@
 #include "bishop.hpp"
 #include "knight.hpp"
 #include "rook.hpp"
+#include "panel.hpp"
 
 class Board
 {
@@ -23,12 +24,14 @@ public:
 	void point (Cell* cell);
 	void mouseMove(int x, int y);
 	void keypressed (unsigned char key);
+	void writeNotation(Cell* from, Cell* to);
 	bool move(Cell* from, Cell* to);
 private:
 
 	static bool cellEmpty(int x, int y);
 	static Cell cell[8][8];
 
+	Panel sidePanel;
 	bool figureMoves;
 	std::vector<Figure>::iterator selectedFigure;
 	Texture texture;
@@ -44,6 +47,7 @@ private:
 	int winWidth;
 	int winHeight ;
 	Color currentPlayer;
+	std::vector<char* > notation;
 };
 
 #endif

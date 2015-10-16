@@ -2,6 +2,7 @@
 
 Bishop::Bishop(Cell* pos, Color color) : Figure(pos, color)
 {
+	type = FBishop;
 	if (color == White)
 	{
 		tex.load("res/wbishop.png");

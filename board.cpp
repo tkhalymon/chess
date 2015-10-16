@@ -4,12 +4,13 @@ Cell Board::cell[8][8];
 
 Board::Board()
 {
+	sidePanel.init(&notation);
 	currentPlayer = White;
 	figureMoves = false;
 	cellSize = glutGet(GLUT_WINDOW_HEIGHT) / 10;
 	Figure::setCellSize(cellSize);
 	boardPos.y(cellSize);
-	boardPos.x(glutGet(GLUT_WINDOW_WIDTH) / 2 - cellSize * 4);
+	boardPos.x(cellSize);
 	for (int i = 0; i < 8; ++i)
 	{
 		whiteFigure.push_back(new Pawn(&cell[i][6], White));
@@ -35,7 +36,7 @@ Board::Board()
 	whiteFigure.push_back(new Bishop(&cell[5][0], Black));
 	whiteFigure.push_back(new King(&cell[3][0], Black));
 	whiteFigure.push_back(new Queen(&cell[4][0], Black));
-	
+
 	for (int i = 0; i < 8; ++i)
 	{
 		for (int j = 0; j < 8; ++j)
@@ -145,6 +146,7 @@ void Board::render()
 	{
 		if (!(*i)->dead()) (*i)->render();
 	}
+	sidePanel.render();
 }
 
 void Board::advance()
@@ -241,7 +243,27 @@ void Board::keypressed (unsigned char key)
 		break;
 	}
 	pointed = &cell[pointedX][pointedY];
-	// pointed = lastPointed;
+}
+
+void Board::writeNotation(Cell* from, Cell* to)
+{
+	char buffer[20];
+	char ftype;
+	switch (from->figure()->fType())
+	{
+	case FPawn: ftype = 'P'; break;
+	case FKing: ftype = 'K'; break;
+	case FQueen: ftype = 'Q'; break;
+	case FBishop: ftype = 'B'; break;
+	case FKnight: ftype = 'N'; break;
+	case FRook: ftype = 'R'; break;
+	}
+	if (ftype == 'P')
+		sprintf(buffer, "%c%d-%c%d\n", 'a' + from->x(), 8 - from->y(), 'a' + to->x(), 8 - to->y());
+	else
+		sprintf(buffer, "%c%c%d-%c%d\n", ftype, 'a' + from->x(), 8 - from->y(), 'a' + to->x(), 8 - to->y());
+ 	notation.push_back(new char[20]);
+ 	strcpy(notation.back(), buffer);
 }
 
 bool Board::move(Cell* from, Cell* to)
@@ -261,6 +283,7 @@ bool Board::move(Cell* from, Cell* to)
 				to->setFigure(NULL);
 			}
  		}
+ 		writeNotation(from, to);
  		from->figure()->move(to);
  		return true;
  	}
