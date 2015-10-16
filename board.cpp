@@ -195,7 +195,7 @@ void Board::keypressed (unsigned char key)
 	pointed = &cell[pointedX][pointedY];
 }
 
-bool Board::move(Cell* from, Cell* to)
+bool Board::move(Cell* from, Cell* to, bool write)
 {
 	if (from->piece()->movePossible(to))
  	{
@@ -203,32 +203,95 @@ bool Board::move(Cell* from, Cell* to)
  		if (!to->empty())
  		{
 			to->piece()->kill();
-			to->setFigure(NULL);
+			to->setPiece(NULL);
  		}
  		from->piece()->move(to);
  		return true;
  	}
- 	return false;
+	if (checkCastling(from, to))
+	{
+		if (currentPlayer == White)
+		{
+			white.lCastling = false;
+			white.rCastling = false;
+		}
+		return true;
+	}
+	return false;
+}
+
+bool Board::checkCastling(Cell* from, Cell* to)
+{
+	if (selected->piece()->type() == PKing)
+	{
+		if (currentPlayer == White)
+		{
+			if (from->y() == to->y() && from->x() + 2 == to->x() && white.rCastling
+				&& cell[5][7].empty() && cell[6][7].empty())
+			{
+ 				writeNotation(from, to);
+				from->piece()->move(to);
+				cell[7][7].piece()->move(&cell[5][7]);
+				return true;
+			}
+			if (from->y() == to->y() && from->x() - 2 == to->x() && white.lCastling
+				&& cell[1][7].empty() && cell[2][7].empty() && cell[3][7].empty())
+			{
+ 				writeNotation(from, to);
+				from->piece()->move(to);
+				cell[0][7].piece()->move(&cell[3][7]);
+				return true;
+			}
+		}
+		else
+		{
+			if (from->y() == to->y() && from->x() + 2 == to->x() && black.rCastling
+				&& cell[5][0].empty() && cell[6][0].empty())
+			{
+ 				writeNotation(from, to);
+				from->piece()->move(to);
+				cell[7][0].piece()->move(&cell[5][0]);
+				return true;
+			}
+			if (from->y() == to->y() && from->x() - 2 == to->x() && black.lCastling
+				&& cell[1][0].empty() && cell[2][0].empty() && cell[3][0].empty())
+			{
+ 				writeNotation(from, to);
+				from->piece()->move(to);
+				cell[0][0].piece()->move(&cell[3][0]);
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 void Board::writeNotation(Cell* from, Cell* to)
 {
 	char buffer[20];
-	char ftype[2] = "P";
-	switch (from->piece()->fType())
+	char ftype[2] = " ";
+	if (from->piece()->type() == PKing && abs(from->x() - to->x()) > 1)
 	{
-	case PPawn: ftype[0] = '\0'; break;
-	case PKing: ftype[0] = 'K'; break;
-	case PQueen: ftype[0] = 'Q'; break;
-	case PBishop: ftype[0] = 'B'; break;
-	case PKnight: ftype[0] = 'N'; break;
-	case PRook: ftype[0] = 'R'; break;
+		if (from->x() < to->x()) strcpy(buffer, "0-0");
+		else strcpy(buffer, "0-0-0");
 	}
-	char action;
-	if (!to->empty()) action = 'x';
-	else action = '-';
-	sprintf(buffer, "%s%c%d%c%c%d\n", ftype, 'a' + from->x(), 8 - from->y(), action, 'a' + to->x(), 8 - to->y());
- 	notation.push_back(new char[20]);
+	else
+	{
+		switch (from->piece()->type())
+		{
+		case PPawn: ftype[0] = '\0'; break;
+		case PKing: ftype[0] = 'K'; break;
+		case PQueen: ftype[0] = 'Q'; break;
+		case PBishop: ftype[0] = 'B'; break;
+		case PKnight: ftype[0] = 'N'; break;
+		case PRook: ftype[0] = 'R'; break;
+		}
+		char action;
+		if (!to->empty()) action = 'x';
+		else action = '-';
+		sprintf(buffer, "%s%c%d%c%c%d\n", ftype, 'a' + from->x(), 8 - from->y(), action, 'a' + to->x(), 8 - to->y());
+	}
+ 	notation.push_back(new char[strlen(buffer)]);
  	strcpy(notation.back(), buffer);
 }
 

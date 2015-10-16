@@ -2,8 +2,7 @@
 
 Rook::Rook(Cell* pos, Color color) : Piece(pos, color)
 {
-	firstMove = true;
-	type = PRook;
+	pType = PRook;
 	if (color == White)
 	{
 		tex.load("res/wrook.png");
@@ -17,14 +16,6 @@ Rook::Rook(Cell* pos, Color color) : Piece(pos, color)
 Rook::~Rook()
 {
 
-}
-
-void Rook::move(Cell* cell)
-{
-	firstMove = false;
-	this->cell->setFigure(NULL);
-	this->cell = cell;
-	this->cell->setFigure(this);
 }
 
 bool Rook::movePossible(Cell* cell)

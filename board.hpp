@@ -14,7 +14,14 @@
 
 struct Player
 {
+	Player()
+	{
+		lCastling = true;
+		rCastling = true;
+	}
 	std::vector<Piece*> piece;
+	bool lCastling;
+	bool rCastling;
 };
 
 class Board
@@ -45,11 +52,16 @@ public:
 	void keypressed (unsigned char key);
 
 	// replaces piece
-	bool move(Cell* from, Cell* to);
+	bool move(Cell* from, Cell* to, bool write = true);
 private:
+
+	// check if castling is possible
+	bool checkCastling(Cell* from, Cell* to);
 
 	// write move notation
 	void writeNotation(Cell* from, Cell* to);
+
+	// utility render functions
 	void renderFrame();
 	void renderCells();
 

@@ -10,7 +10,7 @@ bool (*Piece::cellEmpty)(int x, int y);
 Piece::Piece(Cell* _cell, Color c) : cell (_cell), _color(c), _dead(false)
 {
 	_dead = false;
-	cell->setFigure(this);
+	cell->setPiece(this);
 }
 
 Piece::~Piece()
@@ -31,9 +31,9 @@ bool Piece::dead()
 	return _dead;
 }
 
-PieceType Piece::fType()
+PieceType Piece::type()
 {
-	return type;
+	return pType;
 }
 
 void Piece::bindTex()
@@ -43,9 +43,9 @@ void Piece::bindTex()
 
 void Piece::move(Cell* cell)
 {
-	this->cell->setFigure(NULL);
+	this->cell->setPiece(NULL);
 	this->cell = cell;
-	this->cell->setFigure(this);
+	this->cell->setPiece(this);
 }
 
 bool Piece::movePossible(Cell* cell)

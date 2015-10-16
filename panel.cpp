@@ -4,7 +4,7 @@
 
 Panel::Panel()
 {
-	show = false;
+	show = true;
 }
 
 Panel::~Panel()

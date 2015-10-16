@@ -2,7 +2,7 @@
 
 Queen::Queen(Cell* pos, Color color) : Piece(pos, color)
 {
-	type = PQueen;
+	pType = PQueen;
 	if (color == White)
 	{
 		tex.load("res/wqueen.png");

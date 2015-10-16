@@ -9,11 +9,7 @@ class King : public Piece
 public:
 	King(Cell* pos, Color color);
 	~King();
-	void move(Cell*);
 	bool movePossible(Cell* cell);
-private:
-	bool lCastling;
-	bool rCastling;
 };
 
 #endif

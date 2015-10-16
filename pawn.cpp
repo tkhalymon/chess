@@ -3,7 +3,7 @@
 Pawn::Pawn(Cell* pos, Color color) : Piece(pos, color)
 {
 	firstMove = true;
-	type = PPawn;
+	pType = PPawn;
 	if (color == White)
 	{
 		tex.load("res/wpawn.png");

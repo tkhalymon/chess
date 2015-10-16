@@ -20,7 +20,7 @@ public:
 	std::vector<Cell> possibleMoves();
 	void kill();
 	bool dead();
-	PieceType fType();
+	PieceType type();
 	virtual void move(Cell* cell);
 	virtual bool movePossible(Cell* cell);
 	void bindTex();
@@ -33,7 +33,7 @@ protected:
 	Cell* cell;
 	Color _color;
 	bool _dead;
-	PieceType type;
+	PieceType pType;
 };
 
 #endif

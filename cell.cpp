@@ -27,7 +27,7 @@ Piece* Cell::piece()
 	return _piece;
 }
 
-void Cell::setFigure(Piece* piece)
+void Cell::setPiece(Piece* piece)
 {
 	this->_piece = piece;
 }

@@ -2,7 +2,7 @@
 
 Knight::Knight(Cell* pos, Color color) : Piece(pos, color)
 {
-	type = PKnight;
+	pType = PKnight;
 	if (color == White)
 	{
 		tex.load("res/wknight.png");

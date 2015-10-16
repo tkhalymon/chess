@@ -15,7 +15,7 @@ public:
 
 	void setPos(int x, int y, Color c);
 	Piece* piece();
-	void setFigure(Piece*);
+	void setPiece(Piece*);
 	bool inside(int x, int y);
 	Position* pos();
 	int x();
