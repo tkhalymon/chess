@@ -16,10 +16,10 @@ Board* board;
 int main(int argc, char *argv[])
 {
 	glutInit(&argc, argv);
-	// int w = glutGet(GLUT_SCREEN_WIDTH);
-	// int h = glutGet(GLUT_SCREEN_HEIGHT);
-	int w = 640;
-	int h = 640;
+	int w = glutGet(GLUT_SCREEN_WIDTH);
+	int h = glutGet(GLUT_SCREEN_HEIGHT);
+	// int w = 640;
+	// int h = 640;
 	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA);
 	glutInitWindowSize(w, h);
 	glutCreateWindow("Chess 1.0 beta");
@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 	glutKeyboardFunc(keyboard);
 	glutSpecialFunc(specialKeyboard);
 	board = new Board();
+	// glutFullScreen();
 	glutMainLoop();
 	return 0;
 }

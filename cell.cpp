@@ -11,15 +11,15 @@ void Cell::setPos(int x, int y, Color c)
 	color = c;
 	_x = x;
 	_y = y;
-	double cellSize = glutGet(GLUT_WINDOW_HEIGHT) / 10;
-	coords[0] = Position(cellSize * ((double)x + 1.025), cellSize * ((double)y + 1.025));
-	coords[1] = Position(cellSize * ((double)x + 1.975), cellSize * ((double)y + 1.025));
-	coords[2] = Position(cellSize * ((double)x + 1.975), cellSize * ((double)y + 1.975));
-	coords[3] = Position(cellSize * ((double)x + 1.025), cellSize * ((double)y + 1.975));
-	coords[4] = Position(cellSize * ((double)x + 1.12), cellSize * ((double)y + 1.12));
-	coords[5] = Position(cellSize * ((double)x + 1.88), cellSize * ((double)y + 1.12));
-	coords[6] = Position(cellSize * ((double)x + 1.88), cellSize * ((double)y + 1.88));
-	coords[7] = Position(cellSize * ((double)x + 1.12), cellSize * ((double)y + 1.88));
+	double cellSize = glutGet(GLUT_WINDOW_HEIGHT) / 10.;
+	coords[0] = Position(cellSize * (x + 1.025), cellSize * (y + 1.025));
+	coords[1] = Position(cellSize * (x + 1.975), cellSize * (y + 1.025));
+	coords[2] = Position(cellSize * (x + 1.975), cellSize * (y + 1.975));
+	coords[3] = Position(cellSize * (x + 1.025), cellSize * (y + 1.975));
+	coords[4] = Position(cellSize * (x + 1.12), cellSize * (y + 1.12));
+	coords[5] = Position(cellSize * (x + 1.88), cellSize * (y + 1.12));
+	coords[6] = Position(cellSize * (x + 1.88), cellSize * (y + 1.88));
+	coords[7] = Position(cellSize * (x + 1.12), cellSize * (y + 1.88));
 }
 
 Piece* Cell::piece()

@@ -222,6 +222,10 @@ bool Board::move(Cell* from, Cell* to, bool write)
 
 bool Board::checkCastling(Cell* from, Cell* to)
 {
+	if (white.lCastling && from == &cell[0][7]) white.lCastling = false;
+	if (white.rCastling && from == &cell[7][7]) white.lCastling = false;
+	if (black.lCastling && from == &cell[0][0]) white.lCastling = false;
+	if (black.rCastling && from == &cell[7][0]) white.lCastling = false;
 	if (selected->piece()->type() == PKing)
 	{
 		if (currentPlayer == White)
@@ -262,6 +266,16 @@ bool Board::checkCastling(Cell* from, Cell* to)
 				return true;
 			}
 		}
+	}
+	if ((white.lCastling || white.rCastling) && from->x() == 4 && from->y() == 7)
+	{
+		white.lCastling = false;
+		white.rCastling = false;
+	}
+	if ((black.lCastling || black.rCastling) && from->x() == 4 && from->y() == 0)
+	{
+		black.lCastling = false;
+		black.rCastling = false;
 	}
 	return false;
 }

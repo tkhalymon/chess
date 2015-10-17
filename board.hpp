@@ -50,10 +50,10 @@ public:
 
 	// captures keyboard actions
 	void keypressed (unsigned char key);
+private:
 
 	// replaces piece
 	bool move(Cell* from, Cell* to, bool write = true);
-private:
 
 	// check if castling is possible
 	bool checkCastling(Cell* from, Cell* to);
