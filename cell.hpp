@@ -28,7 +28,6 @@ private:
 
 	Position coords[8];
 	Color color;
-	bool busy;
 	Piece* _piece;
 	int _x;
 	int _y;

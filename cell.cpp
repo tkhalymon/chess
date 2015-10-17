@@ -16,6 +16,7 @@ void Cell::setPos(int x, int y, Color c)
 	coords[1] = Position(cellSize * (x + 1.975), cellSize * (y + 1.025));
 	coords[2] = Position(cellSize * (x + 1.975), cellSize * (y + 1.975));
 	coords[3] = Position(cellSize * (x + 1.025), cellSize * (y + 1.975));
+
 	coords[4] = Position(cellSize * (x + 1.12), cellSize * (y + 1.12));
 	coords[5] = Position(cellSize * (x + 1.88), cellSize * (y + 1.12));
 	coords[6] = Position(cellSize * (x + 1.88), cellSize * (y + 1.88));
@@ -75,7 +76,6 @@ void Cell::render()
 		glEnable(GL_TEXTURE_2D);
 		_piece->bindTex();
 		glEnable(GL_BLEND);
-		glEnable(GL_SMOOTH);
 		glBegin(GL_QUADS);
 		glColor3d(1, 1, 1);
 		glTexCoord2d(0, 0);
@@ -87,7 +87,6 @@ void Cell::render()
 		glTexCoord2d(0, 1);
 		glVertex2dv(coords[3].v());
 		glEnd();
-		glDisable(GL_SMOOTH);
 		glDisable(GL_BLEND);
 		glDisable(GL_TEXTURE_2D);
 	}
@@ -105,7 +104,6 @@ void Cell::renderPointed()
 		glVertex2dv(coords[(1 + i) % 4].v());
 		if (color == White) glColor3d(0.7, 0.7, 0.7);
 		else glColor3d(0.3, 0.3, 0.3);
-		
 		glVertex2dv(coords[4 + (1 + i) % 4].v());
 		glVertex2dv(coords[4 + i].v());
 	}
@@ -113,9 +111,9 @@ void Cell::renderPointed()
 
 void Cell::renderSelected()
 {
+	glColor3d(1, 1, 1);
 	for (int i = 0; i < 4; ++i)
 	{
-		glColor3d(1, 1, 1);
 		glVertex2dv(coords[0 + i].v());
 		glVertex2dv(coords[(1 + i) % 4].v());
 		glVertex2dv(coords[4 + (1 + i) % 4].v());

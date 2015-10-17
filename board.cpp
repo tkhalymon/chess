@@ -5,7 +5,9 @@ Cell Board::cell[8][8];
 Board::Board()
 {
 	panel.init(&notation);
-	currentPlayer = White;
+	currentPlayer = &white;
+	white.color = White;
+	black.color = Black;
 	pieceMoves = false;
 	for (int i = 0; i < 8; ++i)
 	{
@@ -82,7 +84,6 @@ void Board::reshape(int width, int height)
 	glViewport(0, 0, width, height);
 	glLoadIdentity();
 	glOrtho(0, width, height, 0, -2, 2);
-	
 	frameCoords[0] = Position (0.05 * height, 0.05 * height);
 	frameCoords[1] = Position (0.95 * height, 0.05 * height);
 	frameCoords[2] = Position (0.95 * height, 0.95 * height);
@@ -110,7 +111,7 @@ void Board::point(Cell* cell)
 {
 	if (selected == NULL)
 	{
-		if (!cell->empty() && cell->piece()->color() == currentPlayer)
+		if (!cell->empty() && cell->piece()->color() == currentPlayer->color)
 		{
 			selected = cell;
 		}
@@ -125,9 +126,9 @@ void Board::point(Cell* cell)
 		{
 			if (move(selected, cell))
 			{
-				if (currentPlayer == Black)
-					currentPlayer = White;
-				else currentPlayer = Black;
+				if (currentPlayer->color == Black)
+					currentPlayer = &white;
+				else currentPlayer = &black;
 			}
 			selected = NULL;
 		}
@@ -159,44 +160,53 @@ void Board::mouseMove(int x, int y)
 			{
 				pointed = &cell[i][j];
 				lastPointed = pointed;
-				pointedX = i;
-				pointedY = j;
 				found = true;
 			}
 		}
 	}
 	if (!found)
 	{
-		lastPointed = pointed;
 		pointed = NULL;
 	}
 }
 
 void Board::keypressed (unsigned char key)
 {
+	if (pointed == NULL)
+	{
+		pointed = lastPointed;
+	}
+	if (pointed == NULL)
+	{
+		pointed = &cell[0][0];
+	}
 	switch (key)
 	{
 	case 'w':
-		if (pointedY > 0) pointedY--;
+		if (pointed->y() > 0) pointed = &cell[pointed->x()][pointed->y() - 1];
 		break;
 	case 's':
-		if (pointedX < 7) pointedY++;
+		if (pointed->y() < 7) pointed = &cell[pointed->x()][pointed->y() + 1];
 		break;
 	case 'a':
-		if (pointedX > 0) pointedX--;
+		if (pointed->x() > 0) pointed = &cell[pointed->x() - 1][pointed->y()];
 		break;
 	case 'd':
-		if (pointedX < 7) pointedX++;
+		if (pointed->x() < 7) pointed = &cell[pointed->x() + 1][pointed->y()];
 		break;
 	case ' ':
 		point (pointed);
 		break;
 	}
-	pointed = &cell[pointedX][pointedY];
 }
 
 bool Board::move(Cell* from, Cell* to, bool write)
 {
+	if (white.lCastling && from == &cell[0][7]) white.lCastling = false;
+	if (white.rCastling && from == &cell[7][7]) white.rCastling = false;
+	if (black.lCastling && from == &cell[0][0]) black.lCastling = false;
+	if (black.rCastling && from == &cell[7][0]) black.rCastling = false;
+
 	if (from->piece()->movePossible(to))
  	{
  		writeNotation(from, to);
@@ -205,16 +215,18 @@ bool Board::move(Cell* from, Cell* to, bool write)
 			to->piece()->kill();
 			to->setPiece(NULL);
  		}
+		if (selected->piece()->type() == PKing)
+		{
+			currentPlayer->lCastling = false;
+			currentPlayer->rCastling = false;
+		}
  		from->piece()->move(to);
  		return true;
  	}
 	if (checkCastling(from, to))
 	{
-		if (currentPlayer == White)
-		{
-			white.lCastling = false;
-			white.rCastling = false;
-		}
+		currentPlayer->lCastling = false;
+		currentPlayer->rCastling = false;
 		return true;
 	}
 	return false;
@@ -222,13 +234,9 @@ bool Board::move(Cell* from, Cell* to, bool write)
 
 bool Board::checkCastling(Cell* from, Cell* to)
 {
-	if (white.lCastling && from == &cell[0][7]) white.lCastling = false;
-	if (white.rCastling && from == &cell[7][7]) white.lCastling = false;
-	if (black.lCastling && from == &cell[0][0]) white.lCastling = false;
-	if (black.rCastling && from == &cell[7][0]) white.lCastling = false;
 	if (selected->piece()->type() == PKing)
 	{
-		if (currentPlayer == White)
+		if (currentPlayer->color == White)
 		{
 			if (from->y() == to->y() && from->x() + 2 == to->x() && white.rCastling
 				&& cell[5][7].empty() && cell[6][7].empty())
@@ -266,16 +274,6 @@ bool Board::checkCastling(Cell* from, Cell* to)
 				return true;
 			}
 		}
-	}
-	if ((white.lCastling || white.rCastling) && from->x() == 4 && from->y() == 7)
-	{
-		white.lCastling = false;
-		white.rCastling = false;
-	}
-	if ((black.lCastling || black.rCastling) && from->x() == 4 && from->y() == 0)
-	{
-		black.lCastling = false;
-		black.rCastling = false;
 	}
 	return false;
 }

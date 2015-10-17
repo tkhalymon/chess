@@ -21,14 +21,13 @@ public:
 	void kill();
 	bool dead();
 	PieceType type();
-	virtual void move(Cell* cell);
+	void move(Cell* cell);
 	virtual bool movePossible(Cell* cell);
 	void bindTex();
 	static void setCellSize(int size);
 	static bool (*cellEmpty)(int x, int y);
 protected:
 
-	static int cellSize;
 	Texture tex;
 	Cell* cell;
 	Color _color;

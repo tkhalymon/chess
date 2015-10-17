@@ -3,8 +3,6 @@
 
 #include "piece.hpp"
 
-int Piece::cellSize;
-
 bool (*Piece::cellEmpty)(int x, int y);
 
 Piece::Piece(Cell* _cell, Color c) : cell (_cell), _color(c), _dead(false)
@@ -51,9 +49,4 @@ void Piece::move(Cell* cell)
 bool Piece::movePossible(Cell* cell)
 {
 	return false;
-}
-
-void Piece::setCellSize(int size)
-{
-	cellSize = size;
 }

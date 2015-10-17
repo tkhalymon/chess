@@ -19,6 +19,7 @@ struct Player
 		lCastling = true;
 		rCastling = true;
 	}
+	Color color;
 	std::vector<Piece*> piece;
 	bool lCastling;
 	bool rCastling;
@@ -90,12 +91,8 @@ private:
 	// pointed cell
 	Cell* pointed;
 	
-	// coordinates of pointed (not selected) cell on board
-	int pointedX;
-	int pointedY;
-
 	// current player color
-	Color currentPlayer;
+	Player* currentPlayer;
 	
 	// game notations
 	std::vector<char* > notation;

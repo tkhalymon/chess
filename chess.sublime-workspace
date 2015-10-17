@@ -475,7 +475,7 @@
 			"file": "main.cpp",
 			"settings":
 			{
-				"buffer_size": 1830,
+				"buffer_size": 1852,
 				"line_ending": "Unix"
 			}
 		},
@@ -483,7 +483,7 @@
 			"file": "board.hpp",
 			"settings":
 			{
-				"buffer_size": 1873,
+				"buffer_size": 1786,
 				"line_ending": "Unix"
 			}
 		},
@@ -491,7 +491,7 @@
 			"file": "board.cpp",
 			"settings":
 			{
-				"buffer_size": 7658,
+				"buffer_size": 7898,
 				"line_ending": "Unix"
 			}
 		},
@@ -517,7 +517,7 @@
 			"file": "cell.hpp",
 			"settings":
 			{
-				"buffer_size": 484,
+				"buffer_size": 472,
 				"line_ending": "Unix"
 			}
 		},
@@ -525,7 +525,7 @@
 			"file": "cell.cpp",
 			"settings":
 			{
-				"buffer_size": 2616,
+				"buffer_size": 2439,
 				"line_ending": "Unix"
 			}
 		},
@@ -533,7 +533,7 @@
 			"file": "piece.hpp",
 			"settings":
 			{
-				"buffer_size": 680,
+				"buffer_size": 650,
 				"line_ending": "Unix"
 			}
 		},
@@ -541,7 +541,7 @@
 			"file": "piece.cpp",
 			"settings":
 			{
-				"buffer_size": 695,
+				"buffer_size": 616,
 				"line_ending": "Unix"
 			}
 		},
@@ -836,6 +836,20 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"type",
+			"white",
+			"point",
+			"frame",
+			"//",
+			"	//",
+			"//",
+			"->",
+			"--",
+			"pointedX",
+			"--",
+			"()--",
+			"pointedY",
+			"(double)",
 			"white",
 			"7",
 			"white",
@@ -949,21 +963,7 @@
 			"875",
 			"075",
 			"925",
-			"975",
-			"0.3, 0.3, 0.3",
-			"0",
-			"-0.025",
-			"5",
-			"975",
-			"025",
-			"0.075",
-			"0.925",
-			"975",
-			"025",
-			"975",
-			"925",
-			"7.975",
-			"0.075"
+			"975"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -982,7 +982,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 14,
 			"sheets":
 			[
 				{
@@ -990,15 +990,15 @@
 					"file": "main.cpp",
 					"settings":
 					{
-						"buffer_size": 1830,
+						"buffer_size": 1852,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								904,
-								904
+								382,
+								382
 							]
 						],
 						"settings":
@@ -1007,7 +1007,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 812.0,
+						"translation.y": 435.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1017,15 +1017,15 @@
 					"file": "board.hpp",
 					"settings":
 					{
-						"buffer_size": 1873,
+						"buffer_size": 1786,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								743,
-								743
+								971,
+								971
 							]
 						],
 						"settings":
@@ -1035,7 +1035,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1566.0,
+						"translation.y": 1276.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1045,15 +1045,15 @@
 					"file": "board.cpp",
 					"settings":
 					{
-						"buffer_size": 7658,
+						"buffer_size": 7898,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5388,
-								5388
+								7712,
+								7712
 							]
 						],
 						"settings":
@@ -1062,7 +1062,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7744.0,
+						"translation.y": 9594.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1079,17 +1079,18 @@
 						"selection":
 						[
 							[
-								87,
-								87
+								310,
+								310
 							]
 						],
 						"settings":
 						{
 							"auto_name": "panel.hpp",
-							"syntax": "Packages/C++/C++.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 145.0,
+						"translation.y": 298.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1106,8 +1107,8 @@
 						"selection":
 						[
 							[
-								95,
-								95
+								900,
+								900
 							]
 						],
 						"settings":
@@ -1117,7 +1118,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 261.0,
+						"translation.y": 1044.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1127,15 +1128,15 @@
 					"file": "cell.hpp",
 					"settings":
 					{
-						"buffer_size": 484,
+						"buffer_size": 472,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								229,
-								229
+								472,
+								472
 							]
 						],
 						"settings":
@@ -1144,7 +1145,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 305.0,
+						"translation.y": 385.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1154,15 +1155,15 @@
 					"file": "cell.cpp",
 					"settings":
 					{
-						"buffer_size": 2616,
+						"buffer_size": 2439,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								934,
-								934
+								52,
+								52
 							]
 						],
 						"settings":
@@ -1171,7 +1172,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 116.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1181,15 +1182,15 @@
 					"file": "piece.hpp",
 					"settings":
 					{
-						"buffer_size": 680,
+						"buffer_size": 650,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								390,
-								390
+								422,
+								422
 							]
 						],
 						"settings":
@@ -1198,7 +1199,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 348.0,
+						"translation.y": 414.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1208,15 +1209,15 @@
 					"file": "piece.cpp",
 					"settings":
 					{
-						"buffer_size": 695,
+						"buffer_size": 616,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								406,
-								406
+								601,
+								601
 							]
 						],
 						"settings":
@@ -1225,7 +1226,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 812.0,
+						"translation.y": 1081.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1321,8 +1322,8 @@
 						"selection":
 						[
 							[
-								81,
-								81
+								253,
+								253
 							]
 						],
 						"settings":
@@ -1331,7 +1332,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 82.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1374,8 +1375,8 @@
 						"selection":
 						[
 							[
-								84,
-								84
+								262,
+								262
 							]
 						],
 						"settings":
@@ -1384,7 +1385,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 638.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1560,28 +1561,8 @@
 						"selection":
 						[
 							[
-								53,
-								53
-							],
-							[
-								184,
-								184
-							],
-							[
-								506,
-								506
-							],
-							[
-								515,
-								515
-							],
-							[
-								525,
-								525
-							],
-							[
-								554,
-								554
+								0,
+								0
 							]
 						],
 						"settings":
