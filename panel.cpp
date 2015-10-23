@@ -4,17 +4,12 @@
 
 Panel::Panel()
 {
-	show = true;
+	show = false;
 }
 
 Panel::~Panel()
 {
 
-}
-
-void Panel::init(std::vector<char *>* _notation)
-{
-	notation = _notation;
 }
 
 void renderString(char* str, int x, int y)
@@ -49,10 +44,10 @@ void Panel::render()
 	glVertex2dv(coords[7].v());
 	glEnd();
 	glColor3d(0, 0, 0);
-	for (int i = 0; i < notation->size(); i++)
-	{
-		renderString((*notation)[i], coords[4].x() + 5 + (i % 2) * _width / 2, coords[4].y() + 20 + i / 2 * 25);
-	}
+	// for (int i = 0; i < notation->size(); i++)
+	// {
+	// 	renderString((*notation)[i], coords[4].x() + 5 + (i % 2) * _width / 2, coords[4].y() + 20 + i / 2 * 25);
+	// }
 }
 
 void Panel::reshape()

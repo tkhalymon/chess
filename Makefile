@@ -1,11 +1,13 @@
 all: chess
-chess: main.o board.o panel.o cell.o piece.o pngtex.o lodepng.o position.o pawn.o king.o queen.o bishop.o knight.o rook.o
-	g++ -std=c++11 main.o board.o panel.o cell.o piece.o pngtex.o lodepng.o position.o pawn.o king.o queen.o bishop.o knight.o rook.o -lGL -lglut -o chess
+chess: main.o board.o move.o panel.o cell.o piece.o pngtex.o lodepng.o position.o pawn.o king.o queen.o bishop.o knight.o rook.o
+	g++ -std=c++11 main.o board.o move.o panel.o cell.o piece.o pngtex.o lodepng.o position.o pawn.o king.o queen.o bishop.o knight.o rook.o -lGL -lglut -o chess
 
 main.o: main.cpp
 	g++ -std=c++11 -c main.cpp
 board.o: board.cpp board.hpp
 	g++ -std=c++11 -c board.cpp
+move.o: move.cpp move.hpp
+	g++ -std=c++11 -c move.cpp
 panel.o: panel.cpp panel.hpp
 	g++ -std=c++11 -c panel.cpp
 cell.o: cell.cpp cell.hpp

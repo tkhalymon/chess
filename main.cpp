@@ -37,6 +37,8 @@ int main(int argc, char *argv[])
 	glutKeyboardFunc(keyboard);
 	glutSpecialFunc(specialKeyboard);
 	board = new Board();
+	// glutReshapeWindow(800, 800);
+	// reshape(800, 800);
 	// glutFullScreen();
 	glutMainLoop();
 	return 0;

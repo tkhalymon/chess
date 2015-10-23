@@ -1,51 +1,52 @@
 #include "board.hpp"
 
-Cell Board::cell[8][8];
+Cell** Board::cell;
 
 Board::Board()
 {
-	panel.init(&notation);
-	currentPlayer = &white;
-	white.color = White;
-	black.color = Black;
+	currentPlayer = White;
 	pieceMoves = false;
+	cell = new Cell*[8];
+	for (int i = 0; i < 8; ++i)
+		cell[i] = new Cell[8];
 	for (int i = 0; i < 8; ++i)
 	{
-		white.piece.push_back(new Pawn(&cell[i][6], White));
+		pieces[White].push_back(new Pawn(&cell[i][6], White));
 	}
-	white.piece.push_back(new Rook(&cell[0][7], White));
-	white.piece.push_back(new Rook(&cell[7][7], White));
-	white.piece.push_back(new Knight(&cell[1][7], White));
-	white.piece.push_back(new Knight(&cell[6][7], White));
-	white.piece.push_back(new Bishop(&cell[2][7], White));
-	white.piece.push_back(new Bishop(&cell[5][7], White));
-	white.piece.push_back(new Queen(&cell[3][7], White));
-	white.piece.push_back(new King(&cell[4][7], White));
-	
+	pieces[White].push_back(new Rook(&cell[0][7], White, &cell[3][7]));
+	pieces[White].push_back(new Rook(&cell[7][7], White, &cell[5][7]));
+	pieces[White].push_back(new Knight(&cell[1][7], White));
+	pieces[White].push_back(new Knight(&cell[6][7], White));
+	pieces[White].push_back(new Bishop(&cell[2][7], White));
+	pieces[White].push_back(new Bishop(&cell[5][7], White));
+	pieces[White].push_back(new Queen(&cell[3][7], White));
+	pieces[White].push_back(new King(&cell[4][7], White, (Rook*)pieces[White][8], (Rook*)pieces[White][9]));
+
 	for (int i = 0; i < 8; ++i)
 	{
-		black.piece.push_back(new Pawn(&cell[i][1], Black));
+		pieces[Black].push_back(new Pawn(&cell[i][1], Black));
 	}
-	black.piece.push_back(new Rook(&cell[0][0], Black));
-	black.piece.push_back(new Rook(&cell[7][0], Black));
-	black.piece.push_back(new Knight(&cell[1][0], Black));
-	black.piece.push_back(new Knight(&cell[6][0], Black));
-	black.piece.push_back(new Bishop(&cell[2][0], Black));
-	black.piece.push_back(new Bishop(&cell[5][0], Black));
-	black.piece.push_back(new Queen(&cell[3][0], Black));
-	black.piece.push_back(new King(&cell[4][0], Black));
+	pieces[Black].push_back(new Rook(&cell[0][0], Black, &cell[3][0]));
+	pieces[Black].push_back(new Rook(&cell[7][0], Black, &cell[5][0]));
+	pieces[Black].push_back(new Knight(&cell[1][0], Black));
+	pieces[Black].push_back(new Knight(&cell[6][0], Black));
+	pieces[Black].push_back(new Bishop(&cell[2][0], Black));
+	pieces[Black].push_back(new Bishop(&cell[5][0], Black));
+	pieces[Black].push_back(new Queen(&cell[3][0], Black));
+	pieces[Black].push_back(new King(&cell[4][0], Black, (Rook*)pieces[Black][8], (Rook*)pieces[Black][9]));
 
 	Piece::cellEmpty = cellEmpty;
+
 	selected = NULL;
 }
 
 Board::~Board()
 {
-	for (std::vector<Piece*>::iterator i = white.piece.begin(); i != white.piece.end(); ++i)
+	for (std::vector<Piece*>::iterator i = pieces[White].begin(); i != pieces[White].end(); ++i)
 	{
 		delete (*i);
 	}
-	for (std::vector<Piece*>::iterator i = black.piece.begin(); i != black.piece.end(); ++i)
+	for (std::vector<Piece*>::iterator i = pieces[Black].begin(); i != pieces[Black].end(); ++i)
 	{
 		delete (*i);
 	}
@@ -53,19 +54,22 @@ Board::~Board()
 
 void Board::render()
 {
-	renderFrame();
-	renderCells();
-	if (panel.enabled())
+	if (glutGet(GLUT_WINDOW_HEIGHT) >= 300 && glutGet(GLUT_WINDOW_WIDTH) >= 300)
 	{
-		panel.render();
+		renderFrame();
+		renderCells();
+		if (panel.enabled())
+		{
+			panel.render();
+		}
 	}
 }
 
 void Board::reshape(int width, int height)
 {
-	if (height < 500)
+	if (height < 300)
 	{
-		glutReshapeWindow(500, 500);
+		glutReshapeWindow(300, 300);
 	}
 	if (panel.enabled())
 	{
@@ -84,14 +88,15 @@ void Board::reshape(int width, int height)
 	glViewport(0, 0, width, height);
 	glLoadIdentity();
 	glOrtho(0, width, height, 0, -2, 2);
+	glMatrixMode(GL_MODELVIEW);
 	frameCoords[0] = Position (0.05 * height, 0.05 * height);
 	frameCoords[1] = Position (0.95 * height, 0.05 * height);
 	frameCoords[2] = Position (0.95 * height, 0.95 * height);
 	frameCoords[3] = Position (0.05 * height, 0.95 * height);
-	frameCoords[4] = Position (0.09875 * height, 0.09875 * height);
-	frameCoords[5] = Position (0.90125 * height, 0.09875 * height);
-	frameCoords[6] = Position (0.90125 * height, 0.90125 * height);
-	frameCoords[7] = Position (0.09875 * height, 0.90125 * height);
+	frameCoords[4] = Position (0.1 * height, 0.1 * height);
+	frameCoords[5] = Position (0.9 * height, 0.1 * height);
+	frameCoords[6] = Position (0.9 * height, 0.9 * height);
+	frameCoords[7] = Position (0.1 * height, 0.9 * height);
 	for (int i = 0; i < 8; ++i)
 	{
 		for (int j = 0; j < 8; ++j)
@@ -111,7 +116,7 @@ void Board::point(Cell* cell)
 {
 	if (selected == NULL)
 	{
-		if (!cell->empty() && cell->piece()->color() == currentPlayer->color)
+		if (!cell->empty() && cell->piece()->color() == currentPlayer)
 		{
 			selected = cell;
 		}
@@ -126,9 +131,9 @@ void Board::point(Cell* cell)
 		{
 			if (move(selected, cell))
 			{
-				if (currentPlayer->color == Black)
-					currentPlayer = &white;
-				else currentPlayer = &black;
+				if (currentPlayer == Black)
+					currentPlayer = White;
+				else currentPlayer = Black;
 			}
 			selected = NULL;
 		}
@@ -197,84 +202,29 @@ void Board::keypressed (unsigned char key)
 	case ' ':
 		point (pointed);
 		break;
+	case 'p':
+		if (panel.enabled()) panel.disable();
+		else panel.enable();
+		break;
 	}
 }
-
 bool Board::move(Cell* from, Cell* to, bool write)
 {
-	if (white.lCastling && from == &cell[0][7]) white.lCastling = false;
-	if (white.rCastling && from == &cell[7][7]) white.rCastling = false;
-	if (black.lCastling && from == &cell[0][0]) black.lCastling = false;
-	if (black.rCastling && from == &cell[7][0]) black.rCastling = false;
-
-	if (from->piece()->movePossible(to))
+	if (from->piece()->type() != PPawn)
+	{
+		Pawn::noPassant();
+	}
+ 	if (from->piece()->movePossible(to))
  	{
  		writeNotation(from, to);
  		if (!to->empty())
  		{
-			to->piece()->kill();
+			to->piece()->take();
 			to->setPiece(NULL);
  		}
-		if (selected->piece()->type() == PKing)
-		{
-			currentPlayer->lCastling = false;
-			currentPlayer->rCastling = false;
-		}
  		from->piece()->move(to);
  		return true;
  	}
-	if (checkCastling(from, to))
-	{
-		currentPlayer->lCastling = false;
-		currentPlayer->rCastling = false;
-		return true;
-	}
-	return false;
-}
-
-bool Board::checkCastling(Cell* from, Cell* to)
-{
-	if (selected->piece()->type() == PKing)
-	{
-		if (currentPlayer->color == White)
-		{
-			if (from->y() == to->y() && from->x() + 2 == to->x() && white.rCastling
-				&& cell[5][7].empty() && cell[6][7].empty())
-			{
- 				writeNotation(from, to);
-				from->piece()->move(to);
-				cell[7][7].piece()->move(&cell[5][7]);
-				return true;
-			}
-			if (from->y() == to->y() && from->x() - 2 == to->x() && white.lCastling
-				&& cell[1][7].empty() && cell[2][7].empty() && cell[3][7].empty())
-			{
- 				writeNotation(from, to);
-				from->piece()->move(to);
-				cell[0][7].piece()->move(&cell[3][7]);
-				return true;
-			}
-		}
-		else
-		{
-			if (from->y() == to->y() && from->x() + 2 == to->x() && black.rCastling
-				&& cell[5][0].empty() && cell[6][0].empty())
-			{
- 				writeNotation(from, to);
-				from->piece()->move(to);
-				cell[7][0].piece()->move(&cell[5][0]);
-				return true;
-			}
-			if (from->y() == to->y() && from->x() - 2 == to->x() && black.lCastling
-				&& cell[1][0].empty() && cell[2][0].empty() && cell[3][0].empty())
-			{
- 				writeNotation(from, to);
-				from->piece()->move(to);
-				cell[0][0].piece()->move(&cell[3][0]);
-				return true;
-			}
-		}
-	}
 	return false;
 }
 
@@ -303,8 +253,8 @@ void Board::writeNotation(Cell* from, Cell* to)
 		else action = '-';
 		sprintf(buffer, "%s%c%d%c%c%d\n", ftype, 'a' + from->x(), 8 - from->y(), action, 'a' + to->x(), 8 - to->y());
 	}
- 	notation.push_back(new char[strlen(buffer)]);
- 	strcpy(notation.back(), buffer);
+	// notation.push_back(new char[strlen(buffer)]);
+	// strcpy(notation.back(), buffer);
 }
 
 void Board::renderFrame()
@@ -315,7 +265,7 @@ void Board::renderFrame()
 		glColor3d(0, 0, 0);
 		glVertex2dv(frameCoords[0 + i].v());
 		glVertex2dv(frameCoords[(1 + i) % 4].v());
-		glColor3d(0.7, 0.7, 0.7);
+		glColor3d(0.3, 0.3, 0.3);
 		glVertex2dv(frameCoords[4 + (1 + i) % 4].v());
 		glVertex2dv(frameCoords[4 + i].v());
 	}
@@ -324,17 +274,22 @@ void Board::renderFrame()
 
 void Board::renderCells()
 {
-	glBegin(GL_QUADS);
 	for (int i = 0; i < 8; ++i)
 	{
 		for (int j = 0; j < 8; ++j)
 		{
-			cell[i][j].render();
+			if (&cell[i][j] != selected && &cell[i][j] != pointed)
+			{
+				cell[i][j].renderCell();
+				if (!cell[i][j].empty())
+				{
+					cell[i][j].renderPiece();
+				}
+			}
 		}
 	}
 	if (pointed != NULL) pointed->renderPointed();
 	if (selected != NULL) selected->renderSelected();
-	glEnd();
 }
 
 bool Board::cellEmpty(int x, int y)

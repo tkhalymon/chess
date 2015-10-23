@@ -10,24 +10,25 @@ public:
 	Panel();
 	~Panel();
 
+	// draws side panel
 	void render();
 
+	// processes window size changing
 	void reshape();
 
-	void init(std::vector<char *>* notation);
-
+	// panel width (without frame)
 	int width();
 
 	void enable();
 	
 	void disable();
 
+	// check if enabled
 	bool enabled();
 private:
 
 	Position coords[8];
 	int _width;
-	std::vector<char*>* notation;
 	bool show;
 };
 

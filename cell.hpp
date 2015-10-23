@@ -13,22 +13,44 @@ public:
 	Cell();
 	~Cell();
 
+	// initialize cell coordinates and color
 	void setPos(int x, int y, Color c);
+
+	// returns pointer to piece on this cell, or NULL if it's empty
 	Piece* piece();
+
+	// sets cells piece
 	void setPiece(Piece*);
+
+	// check if point (x; y) lying inside this cell (used for mouse click)
 	bool inside(int x, int y);
-	Position* pos();
+
+	// x coordinate of cell
 	int x();
+
+	// y coordinate of cell
 	int y();
+
+	// returns true if cell is empty
 	bool empty();
-	void render();
+
+	// drawing functions
+	void renderCell();
+	void renderPiece();
 	void renderPointed();
 	void renderSelected();
 private:
 
+	// all vertices (used for render)
 	Position coords[8];
+
+	// cell color
 	Color color;
+
+	// pointer to piece in this cell
 	Piece* _piece;
+
+	// coordinates
 	int _x;
 	int _y;
 };

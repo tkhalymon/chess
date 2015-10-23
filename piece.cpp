@@ -5,9 +5,8 @@
 
 bool (*Piece::cellEmpty)(int x, int y);
 
-Piece::Piece(Cell* _cell, Color c) : cell (_cell), _color(c), _dead(false)
+Piece::Piece(Cell* _cell, Color c) : cell (_cell), _color(c), pieceAlive(true)
 {
-	_dead = false;
 	cell->setPiece(this);
 }
 
@@ -19,14 +18,15 @@ Color Piece::color()
 	return _color;
 }
 
-void Piece::kill()
+void Piece::take()
 {
-	_dead = true;
+	pieceAlive = false;
+	cell->setPiece(NULL);
 }
 
-bool Piece::dead()
+bool Piece::alive()
 {
-	return _dead;
+	return pieceAlive;
 }
 
 PieceType Piece::type()

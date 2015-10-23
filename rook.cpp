@@ -1,6 +1,6 @@
 #include "rook.hpp"
 
-Rook::Rook(Cell* pos, Color color) : Piece(pos, color)
+Rook::Rook(Cell* pos, Color color, Cell* castlePos) : Piece(pos, color), castlePos(castlePos)
 {
 	pType = PRook;
 	if (color == White)
@@ -11,11 +11,20 @@ Rook::Rook(Cell* pos, Color color) : Piece(pos, color)
 	{
 		tex.load("res/brook.png");
 	}
+	castlPossible = true;
 }
 
 Rook::~Rook()
 {
 
+}
+
+void Rook::move(Cell* cell)
+{
+	castlPossible = false;
+	this->cell->setPiece(NULL);
+	this->cell = cell;
+	this->cell->setPiece(this);
 }
 
 bool Rook::movePossible(Cell* cell)
@@ -45,4 +54,19 @@ bool Rook::movePossible(Cell* cell)
 		return true;
 	}
 	return false;
+}
+
+bool Rook::castl()
+{
+	return castlPossible;
+}
+
+void Rook::noCastl()
+{
+	castlPossible = false;
+}
+
+void Rook::castling()
+{
+	move(castlePos);
 }

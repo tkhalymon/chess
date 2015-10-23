@@ -1,29 +1,23 @@
 #ifndef __BOARD_HPP__
 #define __BOARD_HPP__
 
+// board cells
 #include "cell.hpp"
+// library to work with .png textures, uses lodepng library
 #include "pngtex.hpp"
+// decart coordinates system
 #include "position.hpp"
+// piece types
 #include "pawn.hpp"
 #include "king.hpp"
 #include "queen.hpp"
 #include "bishop.hpp"
 #include "knight.hpp"
 #include "rook.hpp"
+// side panel, shows notations
 #include "panel.hpp"
-
-struct Player
-{
-	Player()
-	{
-		lCastling = true;
-		rCastling = true;
-	}
-	Color color;
-	std::vector<Piece*> piece;
-	bool lCastling;
-	bool rCastling;
-};
+// uses for notations and moves operations (undo)
+#include "move.hpp"
 
 class Board
 {
@@ -56,9 +50,6 @@ private:
 	// replaces piece
 	bool move(Cell* from, Cell* to, bool write = true);
 
-	// check if castling is possible
-	bool checkCastling(Cell* from, Cell* to);
-
 	// write move notation
 	void writeNotation(Cell* from, Cell* to);
 
@@ -70,12 +61,11 @@ private:
 	static bool cellEmpty(int x, int y);
 
 	// board cells
-	static Cell cell[8][8];
+	static Cell** cell;
 
 	// players
-	Player white;
-	Player black;
-
+	std::vector<Piece*> pieces[2];
+	
 	// side panel with notations
 	Panel panel;
 	
@@ -92,10 +82,10 @@ private:
 	Cell* pointed;
 	
 	// current player color
-	Player* currentPlayer;
+	Color currentPlayer;
 	
 	// game notations
-	std::vector<char* > notation;
+	std::vector<Move> notation;
 
 	// coordinates to render frame
 	Position frameCoords[8];
