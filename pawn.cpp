@@ -43,9 +43,9 @@ void Pawn::move(Cell* cell)
 
 bool Pawn::movePossible(Cell* cell)
 {
-	// moving direction
+// moving direction
 	int moveDir;
-	// starting cell
+// starting cell
 	int stCell;
 	if (_color == Black)
 	{
@@ -58,36 +58,36 @@ bool Pawn::movePossible(Cell* cell)
 		stCell = 6;
 	}
 	if (this->cell->x() == cell->x() && this->cell->y() == stCell && cell->y() == stCell + 2 * moveDir
-		&& cellEmpty(cell->x(), stCell + moveDir) && cellEmpty(cell->x(), stCell + 2 * moveDir))
+			&& cellEmpty(cell->x(), stCell + moveDir) && cellEmpty(cell->x(), stCell + 2 * moveDir))
 	{
 		return true;
 	}
 	if (this->cell->x() == cell->x() && cell->y() == this->cell->y() + moveDir
-		&& cellEmpty(cell->x(), this->cell->y() + moveDir))
+			&& cellEmpty(cell->x(), this->cell->y() + moveDir))
 	{
 		return true;
 	}
 	if (cell->x() == this->cell->x() - 1 && cell->y() == this->cell->y() + moveDir
-		&& !cellEmpty(this->cell->x() - 1, this->cell->y() + moveDir))
+			&& !cellEmpty(this->cell->x() - 1, this->cell->y() + moveDir))
 	{
 		return true;
 	}
 	if (cell->x() == this->cell->x() + 1 && cell->y() == this->cell->y() + moveDir
-		&& !cellEmpty(this->cell->x() + 1, this->cell->y() + moveDir))
+			&& !cellEmpty(this->cell->x() + 1, this->cell->y() + moveDir))
 	{
 		return true;
 	}
 	
-	// check passant
+// check passant
 	if (passPawn != NULL && this->cell->y() == stCell + 3 * moveDir)
 	{
 		if (cell->y() == stCell + 4 * moveDir && abs(this->cell->x() - cell->x()) == 1
-			&& cell->x() == passCell)
+				&& cell->x() == passCell)
 		{
 			return true;
 		}
 	}
-
+	
 	return false;
 }
 

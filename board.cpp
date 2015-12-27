@@ -36,7 +36,7 @@ Board::Board()
 	pieces[Black].push_back(new King(&cell[4][0], Black, (Rook*)pieces[Black][8], (Rook*)pieces[Black][9]));
 
 	Piece::cellEmpty = cellEmpty;
-
+	pointed = NULL;
 	selected = NULL;
 }
 
@@ -69,7 +69,7 @@ void Board::reshape(int width, int height)
 {
 	if (height < 300)
 	{
-		glutReshapeWindow(300, 300);
+		glutReshapeWindow(300, width);
 	}
 	if (panel.enabled())
 	{
@@ -208,7 +208,8 @@ void Board::keypressed (unsigned char key)
 		break;
 	}
 }
-bool Board::move(Cell* from, Cell* to, bool write)
+
+bool Board::move(Cell* from, Cell* to)
 {
 	if (from->piece()->type() != PPawn)
 	{
@@ -283,13 +284,40 @@ void Board::renderCells()
 				cell[i][j].renderCell();
 				if (!cell[i][j].empty())
 				{
-					cell[i][j].renderPiece();
+					if (cell[i][j].piece()->type() == PKing && ((King*)cell[i][j].piece())->check())
+					{
+						cell[i][j].renderPiece(true);
+					}
+					else
+					{
+						cell[i][j].renderPiece();
+					}
 				}
 			}
 		}
 	}
-	if (pointed != NULL) pointed->renderPointed();
-	if (selected != NULL) selected->renderSelected();
+	if (pointed != NULL)
+	{
+		if (!pointed->empty() && pointed->piece()->type() == PKing && ((King*)pointed->piece())->check())
+		{
+			pointed->renderPointed(true);
+		}
+		else
+		{
+			pointed->renderPointed();
+		}
+	}
+	if (selected != NULL)
+	{
+		if (!selected->empty() && selected->piece()->type() == PKing && ((King*)selected->piece())->check())
+		{
+			selected->renderSelected(true);
+		}
+		else
+		{
+			selected->renderSelected();
+		}
+	}
 }
 
 bool Board::cellEmpty(int x, int y)

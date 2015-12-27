@@ -44,6 +44,11 @@ bool King::movePossible(Cell* cell)
 	return checkCastling(cell);
 }
 
+bool King::check()
+{
+	return true;
+}
+
 bool King::checkCastling(Cell* cell)
 {
 	// check if any castling is possible (it's kings first move)

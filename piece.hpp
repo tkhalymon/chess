@@ -11,7 +11,6 @@ enum Color {Black = 0, White = 1};
 enum PieceType { PPawn, PKing, PQueen, PBishop, PKnight, PRook };
 
 class Piece
-
 {
 public:
 	Piece(Cell* place, Color color);

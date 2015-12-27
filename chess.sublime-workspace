@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"render",
+				"renderCheck()	void"
+			],
+			[
+				"e",
+				"empty()	bool"
+			],
+			[
+				"pass",
+				"passPawn	Pawn *"
+			],
+			[
 				"type",
 				"type()	PieceType"
 			],
@@ -12,16 +24,8 @@
 				"PPawn	PieceType"
 			],
 			[
-				"render",
-				"renderPiece()	void"
-			],
-			[
 				"ren",
 				"renderPiece()	void"
-			],
-			[
-				"e",
-				"enabled()	bool"
 			],
 			[
 				"glutResha",
@@ -487,7 +491,7 @@
 			"file": "main.cpp",
 			"settings":
 			{
-				"buffer_size": 1852,
+				"buffer_size": 1908,
 				"line_ending": "Unix"
 			}
 		},
@@ -495,7 +499,7 @@
 			"file": "board.hpp",
 			"settings":
 			{
-				"buffer_size": 1669,
+				"buffer_size": 1804,
 				"line_ending": "Unix"
 			}
 		},
@@ -503,7 +507,7 @@
 			"file": "board.cpp",
 			"settings":
 			{
-				"buffer_size": 6208,
+				"buffer_size": 7000,
 				"line_ending": "Unix"
 			}
 		},
@@ -511,7 +515,7 @@
 			"file": "move.hpp",
 			"settings":
 			{
-				"buffer_size": 285,
+				"buffer_size": 366,
 				"line_ending": "Unix",
 				"name": "move.hpp"
 			}
@@ -529,7 +533,7 @@
 			"file": "panel.hpp",
 			"settings":
 			{
-				"buffer_size": 376,
+				"buffer_size": 410,
 				"line_ending": "Unix",
 				"name": "panel.hpp"
 			}
@@ -538,7 +542,7 @@
 			"file": "panel.cpp",
 			"settings":
 			{
-				"buffer_size": 1758,
+				"buffer_size": 1693,
 				"line_ending": "Unix",
 				"name": "panel.cpp"
 			}
@@ -547,7 +551,7 @@
 			"file": "cell.hpp",
 			"settings":
 			{
-				"buffer_size": 497,
+				"buffer_size": 970,
 				"line_ending": "Unix"
 			}
 		},
@@ -555,7 +559,7 @@
 			"file": "cell.cpp",
 			"settings":
 			{
-				"buffer_size": 2545,
+				"buffer_size": 2857,
 				"line_ending": "Unix"
 			}
 		},
@@ -563,7 +567,7 @@
 			"file": "piece.hpp",
 			"settings":
 			{
-				"buffer_size": 651,
+				"buffer_size": 1125,
 				"line_ending": "Unix"
 			}
 		},
@@ -571,7 +575,7 @@
 			"file": "piece.cpp",
 			"settings":
 			{
-				"buffer_size": 616,
+				"buffer_size": 639,
 				"line_ending": "Unix"
 			}
 		},
@@ -579,7 +583,7 @@
 			"file": "pawn.hpp",
 			"settings":
 			{
-				"buffer_size": 254,
+				"buffer_size": 412,
 				"line_ending": "Unix"
 			}
 		},
@@ -587,7 +591,7 @@
 			"file": "pawn.cpp",
 			"settings":
 			{
-				"buffer_size": 1534,
+				"buffer_size": 1793,
 				"line_ending": "Unix"
 			}
 		},
@@ -595,7 +599,7 @@
 			"file": "king.hpp",
 			"settings":
 			{
-				"buffer_size": 298,
+				"buffer_size": 420,
 				"line_ending": "Unix"
 			}
 		},
@@ -603,7 +607,7 @@
 			"file": "king.cpp",
 			"settings":
 			{
-				"buffer_size": 1792,
+				"buffer_size": 1286,
 				"line_ending": "Unix"
 			}
 		},
@@ -659,7 +663,7 @@
 			"file": "rook.hpp",
 			"settings":
 			{
-				"buffer_size": 239,
+				"buffer_size": 479,
 				"line_ending": "Unix"
 			}
 		},
@@ -667,7 +671,7 @@
 			"file": "rook.cpp",
 			"settings":
 			{
-				"buffer_size": 1041,
+				"buffer_size": 1249,
 				"line_ending": "Unix"
 			}
 		},
@@ -683,15 +687,15 @@
 	"build_system": "Packages/Makefile/Make.sublime-build",
 	"command_palette":
 	{
-		"height": 138.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
-				"Package Control: in",
+				"ins",
 				"Package Control: Install Package"
 			],
 			[
-				"ins",
+				"Package Control: in",
 				"Package Control: Install Package"
 			],
 			[
@@ -720,13 +724,20 @@
 	},
 	"file_history":
 	[
+		"/home/taras/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/taras/dev/investigation/makefile",
+		"/home/taras/main.pas",
+		"/home/taras/dev/os/script.sh",
+		"/home/taras/.config/sublime-text-2/Packages/User/fpc.sublime-build",
+		"/home/taras/.config/sublime-text-2/Packages/C++/C++.sublime-build",
+		"/etc/mailcap",
+		"/home/taras/a.json",
 		"/home/taras/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/boot/grub/grub.cfg",
 		"/home/taras/Downloads/OS 1-3/1 (copy).sh",
 		"/home/taras/Downloads/Laba3.cpp",
 		"/home/taras/main.cpp",
 		"/home/taras/dev/chess/position.cpp",
-		"/home/taras/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/taras/dev/chss/panel.cpp",
 		"/home/taras/dev/chess/position.hpp",
 		"/home/taras/dev/chess/figure.cpp",
@@ -775,7 +786,6 @@
 		"/home/taras/dev/bowman/main.cpp",
 		"/home/taras/dev/city-simulator/README.md",
 		"/home/taras/194.5*0.35+169.5*0.35+196*0.24+200*0.06+9.8+10",
-		"/home/taras/a.json",
 		"/home/taras/preved.txt",
 		"/media/data/first.pas",
 		"/usr/include/c++/4.8.2/iostream",
@@ -786,7 +796,6 @@
 		"/home/taras/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
 		"/home/taras/dev/city-simulator/makefile",
 		"/home/taras/makefile",
-		"/home/taras/.config/sublime-text-2/Packages/C++/C++.sublime-build",
 		"/home/taras/Downloads/map.osm",
 		"/home/taras/Downloads/graph.txt",
 		"/home/taras/Downloads/main (1).cpp",
@@ -814,7 +823,6 @@
 		"/home/taras/dev/installed.txt",
 		"/home/taras/dev/city-simulator/engine/glstr.h",
 		"/home/taras/dev/city-simulator/engine/openGLStrings.cpp",
-		"/home/taras/dev/investigation/makefile",
 		"/home/taras/update/settings.ini",
 		"/home/taras/todo.txt",
 		"/media/data/projects/map-editor/input.dat",
@@ -843,11 +851,7 @@
 		"/D/Backup/Backup/dev/investigation/ds/double_square",
 		"/C/Users/Taras/Desktop/manual.cpp",
 		"/C/Users/Taras/Downloads/sources/main.cpp",
-		"/C/Users/Taras/city-simulator/engine/makefile",
-		"/C/Users/Taras/Downloads/Program.cs",
-		"/C/Users/Taras/city-simulator/makefile",
-		"/C/Users/Taras/city-simulator/engine/car.h",
-		"/C/Users/Taras/city-simulator/engine/car.cpp"
+		"/C/Users/Taras/city-simulator/engine/makefile"
 	],
 	"find":
 	{
@@ -863,9 +867,47 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"PKing",
+			"об’єк",
+			"об’єкту",
+			"об’єк",
+			"pointed",
+			"true",
+			"cell[i][j].piece()",
+			"pointed",
+			"write",
+			"move",
+			"Pawn",
+			"tex",
+			"	",
+			" - 6",
+			"10",
+			"n",
+			"10",
+			"}",
+			"{",
+			"5 - abs (i - 5)",
+			"i + 1",
+			"10 - i",
+			"else",
+			"i - j",
+			"vim",
+			"subl",
+			"vim",
+			"render",
+			"300",
+			"500",
+			"cell",
+			"dead",
+			"kill",
+			"- 1",
+			"startCell",
+			"moveDir",
+			"rightRook",
+			"castling",
 			"Black",
 			"passCell",
 			"system",
@@ -955,45 +997,7 @@
 			"9",
 			"0.1",
 			"95",
-			"05",
-			"0.3",
-			"frameCoords",
-			"9",
-			"1.1",
-			"1",
-			"];\n",
-			"(1 + i)",
-			"975",
-			"025",
-			"10",
-			"95",
-			"05",
-			"render",
-			"0",
-			"ftype",
-			"figure",
-			"Figure",
-			"figure",
-			"Figure",
-			"figure",
-			"Figure",
-			"figure",
-			"Figure",
-			"figure",
-			"Figure",
-			"figure",
-			"F",
-			"blackFigure",
-			"whitePiece",
-			"whiteFigure",
-			"Figure",
-			"figureMoves",
-			"figure",
-			"figureMoves",
-			"Figure",
-			"FigureType",
-			"Figure",
-			"__FIGURE_HPP__"
+			"05"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1012,7 +1016,7 @@
 	"groups":
 	[
 		{
-			"selected": 22,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1020,15 +1024,15 @@
 					"file": "main.cpp",
 					"settings":
 					{
-						"buffer_size": 1852,
+						"buffer_size": 1908,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								406,
-								406
+								496,
+								496
 							]
 						],
 						"settings":
@@ -1037,7 +1041,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 150.0,
+						"translation.y": 74.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1047,25 +1051,25 @@
 					"file": "board.hpp",
 					"settings":
 					{
-						"buffer_size": 1669,
+						"buffer_size": 1804,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1222,
-								1222
+								1374,
+								1374
 							]
 						],
 						"settings":
 						{
-							"spell_check": true,
+							"spell_check": false,
 							"syntax": "Packages/C++/C++.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1770.0,
+						"translation.y": 1545.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1075,15 +1079,15 @@
 					"file": "board.cpp",
 					"settings":
 					{
-						"buffer_size": 6208,
+						"buffer_size": 7000,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								275,
-								275
+								6548,
+								6548
 							]
 						],
 						"settings":
@@ -1092,7 +1096,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 449.0,
+						"translation.y": 8555.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1102,15 +1106,15 @@
 					"file": "move.hpp",
 					"settings":
 					{
-						"buffer_size": 285,
+						"buffer_size": 366,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								279,
-								279
+								366,
+								366
 							]
 						],
 						"settings":
@@ -1119,7 +1123,7 @@
 							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 8.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1136,8 +1140,8 @@
 						"selection":
 						[
 							[
-								117,
-								117
+								122,
+								122
 							]
 						],
 						"settings":
@@ -1146,7 +1150,7 @@
 							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 30.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1156,7 +1160,145 @@
 					"file": "panel.hpp",
 					"settings":
 					{
-						"buffer_size": 376,
+						"buffer_size": 410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								410,
+								410
+							]
+						],
+						"settings":
+						{
+							"auto_name": "panel.hpp",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 541.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "panel.cpp",
+					"settings":
+					{
+						"buffer_size": 1693,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								844,
+								844
+							]
+						],
+						"settings":
+						{
+							"auto_name": "panel.cpp",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1213.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "cell.hpp",
+					"settings":
+					{
+						"buffer_size": 970,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								692,
+								692
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 617.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "cell.cpp",
+					"settings":
+					{
+						"buffer_size": 2857,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1103,
+								1103
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1505.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "piece.hpp",
+					"settings":
+					{
+						"buffer_size": 1125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								222,
+								222
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "piece.cpp",
+					"settings":
+					{
+						"buffer_size": 639,
 						"regions":
 						{
 						},
@@ -1169,148 +1311,11 @@
 						],
 						"settings":
 						{
-							"auto_name": "panel.hpp",
 							"syntax": "Packages/C++/C++.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "panel.cpp",
-					"settings":
-					{
-						"buffer_size": 1758,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								97,
-								97
-							]
-						],
-						"settings":
-						{
-							"auto_name": "panel.cpp",
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "cell.hpp",
-					"settings":
-					{
-						"buffer_size": 497,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								497,
-								497
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "cell.cpp",
-					"settings":
-					{
-						"buffer_size": 2545,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2545,
-								2545
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3639.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "piece.hpp",
-					"settings":
-					{
-						"buffer_size": 651,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								422,
-								422
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 415.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "piece.cpp",
-					"settings":
-					{
-						"buffer_size": 616,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								561,
-								561
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1031.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1320,23 +1325,24 @@
 					"file": "pawn.hpp",
 					"settings":
 					{
-						"buffer_size": 254,
+						"buffer_size": 412,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								221,
-								221
+								346,
+								346
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 144.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1346,15 +1352,15 @@
 					"file": "pawn.cpp",
 					"settings":
 					{
-						"buffer_size": 1534,
+						"buffer_size": 1793,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								41,
-								41
+								127,
+								127
 							]
 						],
 						"settings":
@@ -1374,23 +1380,25 @@
 					"file": "king.hpp",
 					"settings":
 					{
-						"buffer_size": 298,
+						"buffer_size": 420,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								174,
-								174
+								420,
+								420
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage"
+							"spell_check": false,
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 115.0,
+						"translation.y": 8.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1400,15 +1408,15 @@
 					"file": "king.cpp",
 					"settings":
 					{
-						"buffer_size": 1792,
+						"buffer_size": 1286,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								814,
+								814
 							]
 						],
 						"settings":
@@ -1417,7 +1425,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1126.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1434,8 +1442,8 @@
 						"selection":
 						[
 							[
-								93,
-								93
+								65,
+								65
 							]
 						],
 						"settings":
@@ -1470,7 +1478,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 840.0,
+						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1523,7 +1531,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 87.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1576,7 +1584,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 174.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1586,23 +1594,24 @@
 					"file": "rook.hpp",
 					"settings":
 					{
-						"buffer_size": 239,
+						"buffer_size": 479,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								177,
-								177
+								359,
+								359
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 30.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1612,15 +1621,15 @@
 					"file": "rook.cpp",
 					"settings":
 					{
-						"buffer_size": 1041,
+						"buffer_size": 1249,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								263,
-								263
+								1242,
+								1242
 							]
 						],
 						"settings":
@@ -1629,7 +1638,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 330.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1646,8 +1655,8 @@
 						"selection":
 						[
 							[
-								456,
-								456
+								1195,
+								1195
 							]
 						],
 						"settings":
@@ -1704,7 +1713,7 @@
 	},
 	"output.exec":
 	{
-		"height": 318.0
+		"height": 612.0
 	},
 	"replace":
 	{

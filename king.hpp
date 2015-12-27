@@ -11,6 +11,7 @@ public:
 	~King();
 	void move(Cell* cell);
 	bool movePossible(Cell* cell);
+	bool check();
 private:
 	// check if castling is possible
 	bool checkCastling(Cell* cell);

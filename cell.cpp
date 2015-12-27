@@ -69,11 +69,27 @@ void Cell::renderCell()
 	glEnd();
 }
 
-void Cell::renderPiece()
+void Cell::renderCheck()
 {
+	glEnable(GL_ALPHA);
+	glEnable(GL_BLEND);
+	glBegin(GL_QUADS);
+	glColor4d(1, 0, 0, 0.5);
+	glVertex2dv(coords[0].v());
+	glVertex2dv(coords[1].v());
+	glVertex2dv(coords[2].v());
+	glVertex2dv(coords[3].v());
+	glEnd();
+	glDisable(GL_BLEND);
+	glDisable(GL_ALPHA);
+}
+
+void Cell::renderPiece(bool check)
+{
+	if (check) renderCheck();
+	glEnable(GL_BLEND);
 	glEnable(GL_TEXTURE_2D);
 	_piece->bindTex();
-	glEnable(GL_BLEND);
 	glBegin(GL_QUADS);
 	glColor3d(1, 1, 1);
 	glTexCoord2d(0, 0);
@@ -89,7 +105,7 @@ void Cell::renderPiece()
 	glDisable(GL_TEXTURE_2D);
 }
 
-void Cell::renderPointed()
+void Cell::renderPointed(bool check)
 {
 	renderCell();
 	glBegin(GL_QUADS);
@@ -107,11 +123,11 @@ void Cell::renderPointed()
 	glEnd();
 	if (!empty())
 	{
-		renderPiece();
+		renderPiece(check);
 	}
 }
 
-void Cell::renderSelected()
+void Cell::renderSelected(bool check)
 {
 	renderCell();
 	glBegin(GL_QUADS);
@@ -124,5 +140,5 @@ void Cell::renderSelected()
 		glVertex2dv(coords[4 + i].v());
 	}
 	glEnd();
-	renderPiece();
+	renderPiece(check);
 }

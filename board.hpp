@@ -48,7 +48,9 @@ public:
 private:
 
 	// replaces piece
-	bool move(Cell* from, Cell* to, bool write = true);
+	bool move(Cell* from, Cell* to);
+
+	bool check(Cell* from, Cell* to);
 
 	// write move notation
 	void writeNotation(Cell* from, Cell* to);

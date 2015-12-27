@@ -35,10 +35,11 @@ public:
 	bool empty();
 
 	// drawing functions
+	void renderCheck();
 	void renderCell();
-	void renderPiece();
-	void renderPointed();
-	void renderSelected();
+	void renderPiece(bool check = false);
+	void renderPointed(bool check = false);
+	void renderSelected(bool check = false);
 private:
 
 	// all vertices (used for render)
