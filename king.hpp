@@ -11,7 +11,8 @@ public:
 	~King();
 	void move(Cell* cell);
 	bool movePossible(Cell* cell);
-	bool check();
+	void check(bool underCheck);
+	bool underCheck();
 private:
 	// check if castling is possible
 	bool checkCastling(Cell* cell);
@@ -19,6 +20,8 @@ private:
 	// references to rooks  (for castling)
 	Rook* leftRook;
 	Rook* rightRook;
+
+	bool checked;
 };
 
 #endif

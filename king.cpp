@@ -44,9 +44,14 @@ bool King::movePossible(Cell* cell)
 	return checkCastling(cell);
 }
 
-bool King::check()
+void King::check(bool underCheck)
 {
-	return true;
+	this->checked = underCheck;
+}
+
+bool King::underCheck()
+{
+	return checked;
 }
 
 bool King::checkCastling(Cell* cell)

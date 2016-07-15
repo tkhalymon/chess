@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "board.hpp"
 
 Cell** Board::cell;
@@ -215,18 +216,39 @@ bool Board::move(Cell* from, Cell* to)
 	{
 		Pawn::noPassant();
 	}
- 	if (from->piece()->movePossible(to))
- 	{
- 		writeNotation(from, to);
- 		if (!to->empty())
- 		{
+	if (from->piece()->movePossible(to))
+	{
+		writeNotation(from, to);
+		if (!to->empty())
+		{
 			to->piece()->take();
 			to->setPiece(NULL);
- 		}
- 		from->piece()->move(to);
- 		return true;
- 	}
+		}
+		if (check(from, to))
+		{
+
+		}
+		from->piece()->move(to);
+		return true;
+	}
 	return false;
+}
+
+bool Board::check(Cell* from, Cell* to)
+{
+	from->piece()->move(to);
+	for (int i = 0; i < 8; ++i)
+	{
+		for (int j = 0; j < 8; ++j)
+		{
+			if (!cell[i][j].empty() && cell[i][j].piece()->type() == PKing)
+			{
+				
+			}
+		}
+	}
+	to->piece()->move(from);
+	return true;
 }
 
 void Board::writeNotation(Cell* from, Cell* to)
@@ -284,7 +306,7 @@ void Board::renderCells()
 				cell[i][j].renderCell();
 				if (!cell[i][j].empty())
 				{
-					if (cell[i][j].piece()->type() == PKing && ((King*)cell[i][j].piece())->check())
+					if (cell[i][j].piece()->type() == PKing && ((King*)cell[i][j].piece())->underCheck())
 					{
 						cell[i][j].renderPiece(true);
 					}
@@ -298,7 +320,7 @@ void Board::renderCells()
 	}
 	if (pointed != NULL)
 	{
-		if (!pointed->empty() && pointed->piece()->type() == PKing && ((King*)pointed->piece())->check())
+		if (!pointed->empty() && pointed->piece()->type() == PKing && ((King*)pointed->piece())->underCheck())
 		{
 			pointed->renderPointed(true);
 		}
@@ -309,7 +331,7 @@ void Board::renderCells()
 	}
 	if (selected != NULL)
 	{
-		if (!selected->empty() && selected->piece()->type() == PKing && ((King*)selected->piece())->check())
+		if (!selected->empty() && selected->piece()->type() == PKing && ((King*)selected->piece())->underCheck())
 		{
 			selected->renderSelected(true);
 		}

@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	// int h = 640;
 	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA);
 	glutInitWindowSize(w, h);
-	glutCreateWindow("Chess 1.0 beta");
+	glutCreateWindow("Chess 1.1");
 	glClearColor(0.05, 0.05, 0.05, 0.0);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glLoadIdentity();

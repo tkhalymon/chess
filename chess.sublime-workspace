@@ -491,7 +491,7 @@
 			"file": "main.cpp",
 			"settings":
 			{
-				"buffer_size": 1908,
+				"buffer_size": 1903,
 				"line_ending": "Unix"
 			}
 		},
@@ -507,7 +507,7 @@
 			"file": "board.cpp",
 			"settings":
 			{
-				"buffer_size": 7000,
+				"buffer_size": 7323,
 				"line_ending": "Unix"
 			}
 		},
@@ -525,8 +525,7 @@
 			"settings":
 			{
 				"buffer_size": 122,
-				"line_ending": "Unix",
-				"name": "move.cpp"
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -599,7 +598,7 @@
 			"file": "king.hpp",
 			"settings":
 			{
-				"buffer_size": 420,
+				"buffer_size": 471,
 				"line_ending": "Unix"
 			}
 		},
@@ -607,7 +606,7 @@
 			"file": "king.cpp",
 			"settings":
 			{
-				"buffer_size": 1286,
+				"buffer_size": 1362,
 				"line_ending": "Unix"
 			}
 		},
@@ -687,9 +686,13 @@
 	"build_system": "Packages/Makefile/Make.sublime-build",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 117.0,
 		"selected_items":
 		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
 			[
 				"ins",
 				"Package Control: Install Package"
@@ -700,10 +703,6 @@
 			],
 			[
 				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"insta",
 				"Package Control: Install Package"
 			]
 		],
@@ -724,6 +723,13 @@
 	},
 	"file_history":
 	[
+		"/etc/apache2/apache2.conf",
+		"/home/taras/dev/people/Yaroslav/4.c",
+		"/home/taras/dev/people/Yaroslav/3.c",
+		"/home/taras/Downloads/we.pas",
+		"/home/taras/dev/chess/move.cpp",
+		"/home/taras/dev/routes/routeC101.txt",
+		"/home/taras/dev/chess/piece.cpp",
 		"/home/taras/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/taras/dev/investigation/makefile",
 		"/home/taras/main.pas",
@@ -844,14 +850,7 @@
 		"/D/projects/new_project/maze.in",
 		"/C/Users/Taras/AppData/Roaming/Sublime Text 2/Packages/Makefile/Make.sublime-build",
 		"/D/tanks",
-		"/D/Backup/ubuntu backup/dev/investigation/glut init/initGLUT.cpp",
-		"/D/Backup/Backup/Documents/oppinion.c",
-		"/D/Education/Programming/main.cpp",
-		"/D/Backup/Backup/dev/investigation/ds/ans",
-		"/D/Backup/Backup/dev/investigation/ds/double_square",
-		"/C/Users/Taras/Desktop/manual.cpp",
-		"/C/Users/Taras/Downloads/sources/main.cpp",
-		"/C/Users/Taras/city-simulator/engine/makefile"
+		"/D/Backup/ubuntu backup/dev/investigation/glut init/initGLUT.cpp"
 	],
 	"find":
 	{
@@ -870,6 +869,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"check",
+			"underCheck",
+			"check",
+			"x",
+			"y",
+			"x",
+			"j",
+			"i",
+			"if",
 			"PKing",
 			"об’єк",
 			"об’єкту",
@@ -988,16 +996,7 @@
 			"renderFrame",
 			"height",
 			" + h / 20",
-			"10",
-			"coords",
-			"fig",
-			"cellCoords",
-			"1",
-			"7",
-			"9",
-			"0.1",
-			"95",
-			"05"
+			"10"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1024,15 +1023,15 @@
 					"file": "main.cpp",
 					"settings":
 					{
-						"buffer_size": 1908,
+						"buffer_size": 1903,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								496,
-								496
+								1645,
+								1645
 							]
 						],
 						"settings":
@@ -1041,7 +1040,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 74.0,
+						"translation.y": 1511.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1058,8 +1057,8 @@
 						"selection":
 						[
 							[
-								1374,
-								1374
+								671,
+								671
 							]
 						],
 						"settings":
@@ -1069,7 +1068,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1545.0,
+						"translation.y": 552.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1079,15 +1078,15 @@
 					"file": "board.cpp",
 					"settings":
 					{
-						"buffer_size": 7000,
+						"buffer_size": 7323,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6548,
-								6548
+								5199,
+								5199
 							]
 						],
 						"settings":
@@ -1096,7 +1095,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 8555.0,
+						"translation.y": 5400.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1113,8 +1112,8 @@
 						"selection":
 						[
 							[
-								366,
-								366
+								358,
+								358
 							]
 						],
 						"settings":
@@ -1123,7 +1122,7 @@
 							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 8.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1140,17 +1139,16 @@
 						"selection":
 						[
 							[
-								122,
-								122
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"auto_name": "move.cpp",
 							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 30.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1195,8 +1193,8 @@
 						"selection":
 						[
 							[
-								844,
-								844
+								754,
+								754
 							]
 						],
 						"settings":
@@ -1206,7 +1204,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1213.0,
+						"translation.y": 936.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1223,8 +1221,8 @@
 						"selection":
 						[
 							[
-								692,
-								692
+								963,
+								963
 							]
 						],
 						"settings":
@@ -1234,7 +1232,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 617.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1251,8 +1249,8 @@
 						"selection":
 						[
 							[
-								1103,
-								1103
+								844,
+								844
 							]
 						],
 						"settings":
@@ -1261,7 +1259,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1505.0,
+						"translation.y": 1020.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1278,8 +1276,8 @@
 						"selection":
 						[
 							[
-								222,
-								222
+								1111,
+								1111
 							]
 						],
 						"settings":
@@ -1288,7 +1286,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1004.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1332,8 +1330,8 @@
 						"selection":
 						[
 							[
-								346,
-								346
+								266,
+								266
 							]
 						],
 						"settings":
@@ -1342,7 +1340,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 144.0,
+						"translation.y": 102.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1359,8 +1357,8 @@
 						"selection":
 						[
 							[
-								127,
-								127
+								239,
+								239
 							]
 						],
 						"settings":
@@ -1380,15 +1378,15 @@
 					"file": "king.hpp",
 					"settings":
 					{
-						"buffer_size": 420,
+						"buffer_size": 471,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								420,
-								420
+								285,
+								285
 							]
 						],
 						"settings":
@@ -1398,7 +1396,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 8.0,
+						"translation.y": 68.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1408,15 +1406,15 @@
 					"file": "king.cpp",
 					"settings":
 					{
-						"buffer_size": 1286,
+						"buffer_size": 1362,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								814,
-								814
+								891,
+								891
 							]
 						],
 						"settings":
@@ -1425,7 +1423,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1126.0,
+						"translation.y": 960.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1468,8 +1466,8 @@
 						"selection":
 						[
 							[
-								764,
-								764
+								840,
+								840
 							]
 						],
 						"settings":
@@ -1478,7 +1476,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 300.0,
+						"translation.y": 632.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1521,8 +1519,8 @@
 						"selection":
 						[
 							[
-								87,
-								87
+								161,
+								161
 							]
 						],
 						"settings":
@@ -1531,7 +1529,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 87.0,
+						"translation.y": 201.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1611,7 +1609,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 30.0,
+						"translation.y": 18.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1638,7 +1636,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 714.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1713,7 +1711,7 @@
 	},
 	"output.exec":
 	{
-		"height": 612.0
+		"height": 146.0
 	},
 	"replace":
 	{
