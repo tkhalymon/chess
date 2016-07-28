@@ -5,7 +5,7 @@
 
 bool (*Piece::cellEmpty)(int x, int y);
 
-Piece::Piece(Cell* _cell, Color c) : cell (_cell), _color(c), pieceAlive(true)
+Piece::Piece(Cell* _cell, Color c) : cell(_cell), _color(c), pieceAlive(true)
 {
 	cell->setPiece(this);
 }
